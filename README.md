@@ -1,4 +1,4 @@
-![propelling](propelling.svg)
+![propelling](docs/assets/propelling.png)
 
 # Propelling
 

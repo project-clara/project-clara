@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  propelling-angular:
+    build:
+      context: ./propelling-client
+      dockerfile: ./.docker/propelling-angular.development.dockerfile
+    command: ng serve --host 0.0.0.0 --port 4200
+    container_name: propelling-angular-serve-dev
+    image: propelling-angular
+    networks:
+      - dev-network
+    ports:
+      - '4200:4200'
+
+networks:
+  dev-network:
+    driver: bridge

@@ -1,10 +1,10 @@
-import { PropellingClientPage } from './app.po';
+import { PropellingPage } from './app.po';
 
-describe('propelling-client App', () => {
-  let page: PropellingClientPage;
+describe('propelling App', () => {
+  let page: PropellingPage;
 
   beforeEach(() => {
-    page = new PropellingClientPage();
+    page = new PropellingPage();
   });
 
   it('should display welcome message', () => {

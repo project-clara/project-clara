@@ -1,6 +1,6 @@
-#Contributing to Propelling
+#Contributing to Project-Clara
 
-We would love for you to contribute to Propelling and help make it even better than it is
+We would love for you to contribute to Project-Clara and help make it even better than it is
 today! As a contributor, here are the guidelines we would like you to follow:
 
  - [Issues and Bugs](#issue)
@@ -31,13 +31,13 @@ and help you to craft the change so that it is successfully accepted into the pr
 
 Before you submit an issue, please search the issue tracker, maybe an issue for your problem already exists and the discussion might inform you of workarounds readily available.
 
-You can file new issues by filling out our [new issue form](https://github.com/propelling/propelling/issues/new).
+You can file new issues by filling out our [new issue form](https://github.com/project-clara/project-clara/issues/new).
 
 
 ### <a name="submit-pr"></a> Submitting a Pull Request (PR)
 Before you submit your Pull Request (PR) consider the following guidelines:
 
-* Search [GitHub](https://github.com/propelling/propelling/pulls) for an open or closed PR
+* Search [GitHub](https://github.com/project-clara/project-clara/pulls) for an open or closed PR
   that relates to your submission. You don't want to duplicate effort.
 * Make your changes in a new git branch:
 
@@ -47,7 +47,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 
 * Create your patch, **including appropriate test cases**.
 * Follow our [Coding Rules](#rules).
-* Run the full Propelling test suite, as described in the [developer documentation][dev-doc], and ensure that all tests pass.
+* Run the full Project-Clara test suite, as described in the [developer documentation][dev-doc], and ensure that all tests pass.
 * Commit your changes using a descriptive commit message that follows our
   [commit message conventions](#commit). Adherence to these conventions
   is necessary because release notes are automatically generated from these messages.
@@ -63,10 +63,10 @@ Before you submit your Pull Request (PR) consider the following guidelines:
     git push origin my-fix-branch
     ```
 
-* In GitHub, send a pull request to `propelling:develop`.
+* In GitHub, send a pull request to `project-clara:develop`.
 * If we suggest changes then:
   * Make the required updates.
-  * Re-run the Propelling test suites to ensure tests are still passing.
+  * Re-run the Project-Clara test suites to ensure tests are still passing.
   * Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
 
     ```shell
@@ -201,6 +201,6 @@ A detailed explanation can be found in this [document][commit-message-format].
 
 
 [commit-message-format]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#
-[dev-doc]: https://github.com/propelling/propelling/blob/develop/docs/DEVELOPER.md
-[github]: https://github.com/propelling/propelling
+[dev-doc]: https://github.com/project-clara/project-clara/blob/develop/docs/DEVELOPER.md
+[github]: https://github.com/project-clara/project-clara
 [js-style-guide]: https://google.github.io/styleguide/jsguide.html

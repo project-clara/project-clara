@@ -1,4 +1,4 @@
-# Propelling Docs
+# Project-Clara Docs
 
 ## 2017-06-22
 

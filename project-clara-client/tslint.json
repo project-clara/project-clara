@@ -110,13 +110,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "pro",
+      "cla",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "pro",
+      "cla",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

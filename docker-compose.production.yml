@@ -2,21 +2,21 @@ version: '2'
 
 services:
 
-  propelling-angular:
+  project-clara-angular:
     build:
-      context: ./propelling-client
-      dockerfile: ./.docker/propelling-angular.production.dockerfile
+      context: ./project-clara-client
+      dockerfile: ./.docker/project-clara-angular.production.dockerfile
     command: ng build --prod --aot=false
-    container_name: propelling-angular-build-prod
-    image: propelling-angular
+    container_name: project-clara-angular-build-prod
+    image: project-clara-angular
     networks:
       - prod-network
     volumes:
-      - ./propelling-client/dist:/home/app/propelling/dist
+      - ./project-clara-client/dist:/home/app/project-clara/dist
 
-  propelling-nginx:
-    command: /bin/bash -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/propelling.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
-    container_name: propelling-nginx-prod
+  project-clara-nginx:
+    command: /bin/bash -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/project-clara.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    container_name: project-clara-nginx-prod
     environment:
       - NGINX_HOST=localhost
       - NGINX_PORT=80
@@ -26,8 +26,8 @@ services:
     ports:
       - '8080:80'
     volumes:
-      - ./propelling-client/.docker/nginx.conf:/etc/nginx/conf.d/propelling.template
-      - ./propelling-client/dist:/var/www/propelling
+      - ./project-clara-client/.docker/nginx.conf:/etc/nginx/conf.d/project-clara.template
+      - ./project-clara-client/dist:/var/www/project-clara
 
 networks:
   prod-network:

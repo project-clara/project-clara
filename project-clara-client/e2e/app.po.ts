@@ -1,11 +1,11 @@
 import { browser, by, element } from 'protractor';
 
-export class PropellingPage {
+export class ProjectClaraPage {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('pro-root h1')).getText();
+    return element(by.css('cla-root h1')).getText();
   }
 }

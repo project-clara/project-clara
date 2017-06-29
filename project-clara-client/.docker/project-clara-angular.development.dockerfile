@@ -9,7 +9,7 @@ WORKDIR $HOME
 
 RUN npm install -g @angular/cli@latest
 
-ENV APP_NAME=propelling
+ENV APP_NAME=project-clara
 
 # before switching to user we need to set permission properly
 # copy all files, except the ignored files from .dockerignore

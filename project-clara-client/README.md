@@ -1,6 +1,6 @@
-![propelling](../docs/assets/propelling.png)
+![project-clara](../docs/assets/project-clara.png)
 
-# Propelling Client
+# Project-Clara Client
 
 [![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
@@ -8,7 +8,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
 
-Propelling is a simple appointment, feedback and survey application.
+Project-Clara is a simple appointment, feedback and survey application.
 
 ## Commit Message Format
 
@@ -21,8 +21,8 @@ This project follows the [Semantic Versioning 2.0.0](http://semver.org/) specifi
 ## How to start
 
 ```bash
-git clone git@github.com:propelling/propelling.git
-cd propelling/propelling-client
+git clone git@github.com:project-clara/project-clara.git
+cd project-clara/project-clara-client
 # install the project's dependencies
 npm install
 # watches your files and uses livereload by default
@@ -70,8 +70,8 @@ The application provides full Docker support. You can use it for both developmen
 
 The Dockerization infrastructure is described in the `../docker-compose.yml` (respectively `../docker-compose.production.yml`.
 The application consists of two containers:
-* `propelling-angular` - In development mode, this container serves the angular app. In production mode it builds the angular app, with the build artifacts being served by the Nginx container
-* `propelling-nginx` - This container is used only production mode. It serves the built angular app with Nginx.
+* `project-clara-angular` - In development mode, this container serves the angular app. In production mode it builds the angular app, with the build artifacts being served by the Nginx container
+* `project-clara-nginx` - This container is used only production mode. It serves the built angular app with Nginx.
 
 ### Development build and deployment
 
@@ -92,8 +92,8 @@ Run the following:
 ```bash
 $ cd ..
 $ docker-compose -f docker-compose.production.yml build
-$ docker-compose -f docker-compose.production.yml up propelling-angular   # Wait until this container has finished building, as the nginx container is dependent on the production build artifacts
-$ docker-compose -f docker-compose.production.yml up -d propelling-nginx  # Start the nginx container in detached mode
+$ docker-compose -f docker-compose.production.yml up project-clara-angular   # Wait until this container has finished building, as the nginx container is dependent on the production build artifacts
+$ docker-compose -f docker-compose.production.yml up -d project-clara-nginx  # Start the nginx container in detached mode
 ```
 
 Now open your browser at [http://localhost:8080](http://localhost:8080)
@@ -149,11 +149,11 @@ You can use the following workflow to ease your release process:
 
 ## Contributing
 
-Please see the [CONTRIBUTING](https://github.com/propelling/propelling/blob/develop/.github/CONTRIBUTING.md) file for guidelines.
+Please see the [CONTRIBUTING](https://github.com/project-clara/project-clara/blob/develop/.github/CONTRIBUTING.md) file for guidelines.
 
 ## Change Log
 
-You can follow the [Angular change log here](https://github.com/propelling/propelling/blob/develop/CHANGELOG.md).
+You can follow the [Angular change log here](https://github.com/project-clara/project-clara/blob/develop/CHANGELOG.md).
 
 ## License
 

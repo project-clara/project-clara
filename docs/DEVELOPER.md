@@ -1,6 +1,6 @@
-# Building and Testing Propelling
+# Building and Testing Project-Clara
 
-This document describes how to set up your development environment to build and test Propelling.
+This document describes how to set up your development environment to build and test Project-Clara.
 It also explains the basic mechanics of using `git`, `node`, and `npm`.
 
 * [Prerequisite Software](#prerequisite-software)
@@ -9,12 +9,12 @@ It also explains the basic mechanics of using `git`, `node`, and `npm`.
 * [Building](#building)
 * [Running Tests Locally](#running-tests-locally)
 
-See the [contribution guidelines](https://github.com/propelling/propelling/blob/develop/.github/CONTRIBUTING.md)
-if you'd like to contribute to Propelling.
+See the [contribution guidelines](https://github.com/project-clara/project-clara/blob/develop/.github/CONTRIBUTING.md)
+if you'd like to contribute to Project-Clara.
 
 ## Prerequisite Software
 
-Before you can build and test Propelling, you must install and configure the
+Before you can build and test Project-Clara, you must install and configure the
 following products on your development machine:
 
 * [Git](http://git-scm.com) and/or the **GitHub app** (for [Mac](http://mac.github.com) or
@@ -31,32 +31,32 @@ following products on your development machine:
 
 ## Getting the Sources
 
-Fork and clone the Propelling repository:
+Fork and clone the Project-Clara repository:
 
 1. Login to your GitHub account or create one by following the instructions given
    [here](https://github.com/signup/free).
-2. [Fork](http://help.github.com/forking) the [main Propelling
-   repository](https://github.com/propelling/propelling).
-3. Clone your fork of the Propelling repository and define an `upstream` remote pointing back to
-   the Propelling repository that you forked in the first place.
+2. [Fork](http://help.github.com/forking) the [main Project-Clara
+   repository](https://github.com/project-clara/project-clara).
+3. Clone your fork of the Project-Clara repository and define an `upstream` remote pointing back to
+   the Project-Clara repository that you forked in the first place.
 
 ```shell
 # Clone your GitHub repository:
-$ git clone git@github.com:<github username>/propelling.git
+$ git clone git@github.com:<github username>/project-clara.git
 
-# Go to the Propelling directory:
-$ cd propelling
+# Go to the Project-Clara directory:
+$ cd project-clara
 
-# Add the main Propelling repository as an upstream remote to your repository:
-$ git remote add upstream https://github.com/propelling/propelling.git
+# Add the main Project-Clara repository as an upstream remote to your repository:
+$ git remote add upstream https://github.com/project-clara/project-clara.git
 ```
 ## Installing NPM Modules
 
-Next, install the JavaScript modules needed to build and test Propelling client:
+Next, install the JavaScript modules needed to build and test Project-Clara client:
 
 ```shell
-# Install Propelling client project dependencies (package.json)
-$ cd propelling-client
+# Install Project-Clara client project dependencies (package.json)
+$ cd project-clara-client
 $ npm install
 ```
 
@@ -84,7 +84,7 @@ package scripts by invoking: e.g., `npm-run gulp build`
 
 ## Building
 
-To build Propelling client run:
+To build Project-Clara client run:
 
 ```shell
 $ ng build
@@ -97,9 +97,9 @@ $ ng build
 To run tests:
 
 ```shell
-$ cd propelling-client
-$ ng test               # Run all propelling client tests
-$ ng e2e                # Run all propelling client end-to-end tests
+$ cd project-clara-client
+$ ng test               # Run all project-clara client tests
+$ ng e2e                # Run all project-clara client end-to-end tests
 ```
 
 You should execute the 2 test suites before submitting a PR to github.
@@ -110,7 +110,7 @@ All the tests are executed on our Continuous Integration infrastructure and a PR
 
 ## <a name="clang-format"></a> Formatting your source code
 
-Propelling uses [clang-format](http://clang.llvm.org/docs/ClangFormat.html) to format the source code. If the source code
+Project-Clara uses [clang-format](http://clang.llvm.org/docs/ClangFormat.html) to format the source code. If the source code
 is not properly formatted, the CI will fail and the PR can not be merged.
 
 You can automatically format your code by running:
@@ -124,6 +124,6 @@ $ gulp format
 You can check that your code is properly formatted and adheres to coding style by running:
 
 ``` shell
-$ cd propelling-client
+$ cd project-clara-client
 $ ng lint
 ```

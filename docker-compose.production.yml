@@ -29,6 +29,18 @@ services:
       - ./project-clara-client/.docker/nginx.conf:/etc/nginx/conf.d/project-clara.template
       - ./project-clara-client/dist:/var/www/project-clara
 
+    sample-app:
+      build:
+        context: ./propelling-server/sample-app
+        dockerfile: ./.docker/sample-app.production.dockerfile
+      command: java -jar ./target/app.jar
+      container_name: sample-app-serve-prod
+      image: sample-app
+      networks:
+        - prod-network
+      ports:
+        - '9000:9000'
+
 networks:
   prod-network:
     driver: bridge

@@ -14,6 +14,18 @@ services:
     ports:
       - '4200:4200'
 
+  sample-app:
+    build:
+      context: ./propelling-server/sample-app
+      dockerfile: ./.docker/sample-app.development.dockerfile
+    command: java -jar ./target/app.jar
+    container_name: sample-app-serve-dev
+    image: sample-app
+    networks:
+      - dev-network
+    ports:
+      - '9000:9000'
+
 networks:
   dev-network:
     driver: bridge

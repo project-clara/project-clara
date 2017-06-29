@@ -2,7 +2,7 @@
 
 # Project-Clara
 
-[![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
+[![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide) [![Build Status](https://travis-ci.org/project-clara/project-clara.svg?branch=develop)](https://travis-ci.org/project-clara/project-clara)
 
 ## Introduction
 

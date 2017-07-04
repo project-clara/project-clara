@@ -1,11 +1,11 @@
 # 0) Intro
-## 0.1) Wie lesen
+## 0.1) Hintergrund
+Das Dokument ist eine Zusammenfassung der Anforderung an Project Clara.  
+Die Anforderung sind mit der Sophisten Schablone angefertig:
+https://www.sophist.de/fileadmin/SOPHIST/Puplikationen/Broschueren/SOPHIST_Broschuere_MASTeR.pdf
 
-## 0.2) Wie ändern
-Das hier ist öffentliches Dokument an dem jeder etwas ändern darf (und soll).
 
-## 0.3) Nummerierung Requirements
-
+## 0.2) Nummerierung Requirements
 [R|N]\.V\.F\.N  
 R = Konstant für Requirement
 N = Konstantfür Non functional Requirement

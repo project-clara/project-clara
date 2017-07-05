@@ -1,4 +1,4 @@
-#Contributing to Project-Clara
+# Contributing to Project-Clara
 
 We would love for you to contribute to Project-Clara and help make it even better than it is
 today! As a contributor, here are the guidelines we would like you to follow:

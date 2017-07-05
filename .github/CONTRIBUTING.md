@@ -9,6 +9,8 @@ today! As a contributor, here are the guidelines we would like you to follow:
  - [Coding Rules](#rules)
  - [Commit Message Guidelines](#commit)
 
+Project Clara uses the [gitflow-workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow), you can find further information in this [blog post](http://nvie.com/posts/a-successful-git-branching-model/). There is also a [cheat sheet](https://danielkummer.github.io/git-flow-cheatsheet/) available.
+
 ## <a name="issue"></a> Found a Bug?
 If you find a bug in the source code, you can help us by
 [submitting an issue](#submit-issue) to our [GitHub Repository][github]. Even better, you can

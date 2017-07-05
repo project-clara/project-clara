@@ -14,7 +14,7 @@ V = V1, V2, V3 etc. Mapping V1 zu semantischer Version sollte davon losgelöst l
 F = Featurebereich (siehe 1.)
 N = Laufende Nummer für identifizierung
 
-## 0.4) Fragen an den Kunden
+## 0.3) Fragen an den Kunden
 * Q1) Was ist der funktionale Unterschied zwischen einer Bewertung und einer Umfrage?
 
 

@@ -1,14 +1,14 @@
-import { ProjectClaraPage } from './app.po';
+import { AppPage } from './app.po';
 
 describe('project-clara App', () => {
-  let page: ProjectClaraPage;
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new ProjectClaraPage();
+    page = new AppPage();
   });
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to cla!!');
+    expect(page.getParagraphText()).toEqual('Welcome to cla!');
   });
 });

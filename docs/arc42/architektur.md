@@ -208,6 +208,7 @@ Querschnittliche Konzepte {#section-concepts}
 *&lt;Konzept 2&gt;* {#__emphasis_konzept_2_emphasis}
 -------------------
 
+
 *&lt;Erklärung&gt;*
 
 …
@@ -224,6 +225,7 @@ Qualitätsanforderungen {#section-quality-scenarios}
 ======================
 
 Qualitätsbaum {#_qualit_tsbaum}
+![Kontextsicht](images/qualitaetsbaum.png)
 -------------
 
 Qualitätsszenarien {#_qualit_tsszenarien}
@@ -242,5 +244,3 @@ Glossar {#section-glossary}
 +----------------------+----------------------------------------------+
 | *&lt;Begriff-2*      | *&lt;Definition-2&gt;*                       |
 +----------------------+----------------------------------------------+
-
-

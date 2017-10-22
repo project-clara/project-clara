@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+    db:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: gH=z9aKK
+            MYSQL_DATABASE: clara_dev
+            MYSQL_USER: clara
+            MYSQL_PASSWORD: r4KhaS
+        container_name: mysql_clara_dev
+        volumes:
+            - /data/db/dev:/var/lib/mysql
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8081:8080
+        container_name: mysql_adminer_dev

@@ -1,0 +1,19 @@
+version: '2'
+services:
+    DB:
+        image: postgres:10
+        restart: always
+        environment:
+          POSTGRES_ROOT_PASSWORD: gH=z9aKK
+          POSTGRES_DATABASE: clara_dev
+          POSTGRES_USER: clara_dev
+          POSTGRES_PASSWORD: r4KhaS
+        volumes:
+            - /data/db/dev:/var/lib/postgres
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8081:8080
+        container_name: postgres_adminer_dev

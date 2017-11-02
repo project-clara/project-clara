@@ -11,9 +11,9 @@ public class SurveyMockHelper {
 
     public static Survey getSurvey42() {
         Question[] listOfQuestions = {
-                new TextQuestion("This is a question"),
-                new TextQuestion("This is another question"),
-                new SingleChoiceQuestion("What is the best language?",Arrays.asList(
+                new TextQuestion("This is a question",null,true),
+                new TextQuestion("This is another question",null,false),
+                new SingleChoiceQuestion("What is the best language?",null,true,Arrays.asList(
                         new ChoiceEntry("CSharp","C#"),
                         new ChoiceEntry("Java","Java"),
                         new ChoiceEntry("Asm","Assembler")

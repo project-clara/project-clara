@@ -6,20 +6,36 @@ import com.google.common.base.Preconditions;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class Question {
-    @JsonProperty("id")
+    @JsonProperty
     public final Long id;
 
-    @JsonProperty("question")
-    public final String question;
+    @JsonProperty
+    public final String questionText;
 
-    public Question(Long id, String question){
-        Preconditions.checkNotNull(question,"Question must not be null");
+    @JsonProperty
+    public final String description;
 
-        this.id = id;
-        this.question = question;
+    @JsonProperty
+    public final boolean mandatory;
+
+
+    public final QuestionType questionType;
+
+    @JsonProperty("questionType")
+    public final String questionTpeAsString(){
+        return questionType.toString();
     }
 
-    @JsonProperty("type")
-    protected abstract String questionType();
+
+
+    public Question(Long id, QuestionType questionType, String questionText, String description, boolean mandatory){
+        Preconditions.checkNotNull(questionText,"QuestionText must not be null");
+
+        this.id = id;
+        this.questionType = questionType;
+        this.questionText = questionText;
+        this.description = description;
+        this.mandatory = mandatory;
+    }
 }
 

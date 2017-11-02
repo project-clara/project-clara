@@ -13,20 +13,15 @@ public class SingleChoiceQuestion extends Question{
     @JsonProperty("questions")
     public final List<ChoiceEntry> choiceEntries;
 
-    public SingleChoiceQuestion(Long id, String question, List<ChoiceEntry> choiceEntries) {
-        super(id, question);
+    public SingleChoiceQuestion(Long id, String questionText, String description, boolean mandatory, List<ChoiceEntry> choiceEntries) {
+        super(id, QuestionType.SINGLE_CHOICE_QUESTION, questionText, description, mandatory);
         Preconditions.checkNotNull(choiceEntries,"ChoiceOptions must be given for SingleChoiceQuestion");
         Preconditions.checkArgument(!choiceEntries.isEmpty(),"ChoiceOptions must contain at least one option");
         this.choiceEntries = Collections.unmodifiableList(choiceEntries);
     }
 
-    public SingleChoiceQuestion(String question,List<ChoiceEntry> choiceEntries) {
-        this(null, question, choiceEntries);
-    }
-
-    @Override
-    protected String questionType() {
-        return getClass().getSimpleName();
+    public SingleChoiceQuestion(String questionText, String description, boolean mandatory, List<ChoiceEntry> choiceEntries) {
+        this(null, questionText, description, mandatory, choiceEntries);
     }
 }
 

@@ -4,16 +4,12 @@ package de.cleargroup.project.clara.domain.survey;
  * Created by jonas on 27.10.2017.
  */
 public class TextQuestion extends Question{
-    public TextQuestion(Long id, String question) {
-        super(id,question);
+    public TextQuestion(Long id, String questionText, String description, boolean mandatory) {
+        super(id, QuestionType.TEXT_QUESTION, questionText, description, mandatory);
     }
 
-    public TextQuestion(String question) {
-        this(null,question);
-    }
+    public TextQuestion(String questionText, String description, boolean mandatory) {
 
-    @Override
-    protected String questionType() {
-        return getClass().getSimpleName();
+        this(null,questionText, description, mandatory);
     }
 }

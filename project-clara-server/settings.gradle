@@ -1,0 +1,2 @@
+rootProject.name = 'project-clara-server'
+include 'server-mock','domain'

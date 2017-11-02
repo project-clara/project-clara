@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="project_clara" version="4">
+  <OBJECT>
+    <ID name="project_clara" mc="Standard.Package" uid="738333e3-96ae-4373-b74a-7187da28095e"/>
+    <PID name="project_clara" mc="Standard.Project" uid="45116bea-1178-4676-baf5-87594d2fb8f4"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[project_clara]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Survey" mc="Standard.Class" uid="75720355-3e68-4876-ba7f-09dcaf99a977"/>
+        <COMPID name="Question" mc="Standard.Class" uid="0f66ce73-1c63-4500-80c1-711002254f1b"/>
+        <COMPID name="Answer" mc="Standard.Class" uid="9b7be83e-57a6-486f-80af-b582c8ced879"/>
+        <COMPID name="QuestionType" mc="Standard.Class" uid="e34a9a02-de6f-441d-a983-9cec78d6002b"/>
+        <COMPID name="SelectItem" mc="Standard.Class" uid="ee9ed546-6953-49fb-b98a-ca9912499f21"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Project-Clara Classes" mc="Standard.ClassDiagram" uid="1a8f8fe4-0986-41dd-9fb8-ea4916cea7ee"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

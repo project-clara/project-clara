@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<ram-component manifest-version="2.0.01" name="JavaDesigner" version="0" release="0" clevel="0" modelioVersion="3.6.01">
+  <description><![CDATA[]]></description>
+  <dependencies></dependencies>
+  <contributors></contributors>
+  <metamodels>
+    <metamodel name="Infrastructure" version="2.0.00"/>
+  </metamodels>
+  <roots>
+    <root metaclass="Infrastructure.ModuleComponent" name="JavaDesigner" uuid="003800a8-0000-022e-0000-000000000000"/>
+  </roots>
+</ram-component>

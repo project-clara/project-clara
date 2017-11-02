@@ -16,9 +16,9 @@ services:
       
   project-clara-server-mock:
     build:
-      context: ./project-clara-server/server-mock
-      dockerfile: ./.docker/project-clara-server-mock.development.dockerfile
-    command: gradle bootRun
+      context: ./project-clara-server
+      dockerfile: ./server-mock/.docker/project-clara-server-mock.development.dockerfile
+    command: gradle server-mock:bootRun
     container_name: project-clara-server-mock-dev
     image: project-clara-server-mock
     networks:

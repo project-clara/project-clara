@@ -13,6 +13,18 @@ services:
       - dev-network
     ports:
       - '4200:4200'
+      
+  project-clara-server-mock:
+    build:
+      context: ./project-clara-server
+      dockerfile: ./server-mock/.docker/project-clara-server-mock.development.dockerfile
+    command: gradle server-mock:bootRun
+    container_name: project-clara-server-mock-dev
+    image: project-clara-server-mock
+    networks:
+      - dev-network
+    ports:
+      - '8080:8080'
 
 networks:
   dev-network:

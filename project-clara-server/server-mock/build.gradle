@@ -1,0 +1,40 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+group 'de.clear-group.project.clara'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'server-mock'
+    version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+}
+
+dependencies {
+    compile project(':domain')
+
+
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("com.google.guava:guava:23.2-jre")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+}

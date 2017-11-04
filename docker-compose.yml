@@ -24,7 +24,7 @@ services:
     networks:
       - dev-network
     ports:
-      - '8080:8080'
+      - '5000:5000'
 
 networks:
   dev-network:

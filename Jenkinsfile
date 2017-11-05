@@ -5,7 +5,7 @@ node {
         }
         stage('build & deploy') {
             sh "docker-compose down"
-            sh "docker rmi project-clara-angular || exit"
+            sh "docker rmi project-clara-angular || true"
             sh "docker-compose up -d --build"
         }
     } catch (e) {

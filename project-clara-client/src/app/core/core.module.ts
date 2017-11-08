@@ -3,9 +3,6 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthenticationModule } from './authentication/authentication.module';
-import { SortService } from './collections/sort.service';
-import { DateTimeService } from './date-time/date-time.service';
-import { FileSaverService } from './files/file-saver.service';
 import { HttpResourceModule } from './http-resource/http-resource.module';
 import { LoggingService } from './logging/logging.service';
 import { NavigationModule } from './navigation/navigation.module';
@@ -36,7 +33,7 @@ import { throwIfAlreadyLoaded } from './module-import.guard';
     NavigationModule
   ],
   declarations: [],
-  providers: [SortService, DateTimeService, FileSaverService, LoggingService]
+  providers: [ LoggingService]
 })
 export class CoreModule {
 

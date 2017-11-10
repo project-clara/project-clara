@@ -1,0 +1,66 @@
+@startuml
+scale 2
+enum SurveyState{
+  IN_PROGRESS
+  RELEASED
+  CLOSED
+}
+
+class Survey {
+  +id: long 
+  +title: string 
+  +description: string 
+  +authorId: long
+  +state: SurveyState
+}
+
+abstract class Question {
+  +id: long
+  +questionText: string
+  +description: string
+  +mandatory: boolean
+  +questionType: QuestionType
+  +condition: string
+  +surveyId: long
+}
+
+enum QuestionType{
+  TEXT_QUESTION
+  SINGLE_CHOICE_QUESTION
+}
+
+class TextQuestion{
+
+}
+
+class SingleChoiceQuestion{
+  +choiceEntries: List<ChoiceEntry>
+}
+
+class ChoiceEntry{
+  +key: string
+  +choiceText: string
+}
+
+abstract class Answer{
+  +questionId: long
+}
+
+class SingleChoiceAnswer{
+  +choiceKey: string
+}
+
+class TextAnswer{
+  +answerText: string
+}
+
+Survey "0..*" <- "*" Question
+Survey -- SurveyState
+Question -- QuestionType
+Question <|-- TextQuestion
+Question <|-- SingleChoiceQuestion
+SingleChoiceQuestion -- ChoiceEntry
+Answer -- SingleChoiceAnswer
+Answer -- TextAnswer
+
+@enduml

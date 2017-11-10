@@ -23,6 +23,10 @@ This project follows the [Semantic Versioning 2.0.0](http://semver.org/) specifi
 ```bash
 git clone git@github.com:project-clara/project-clara.git
 cd project-clara/project-clara-client
+
+# to install the Angular CLI:
+npm install -g @angular/cli
+
 # install the project's dependencies
 npm install
 # watches your files and uses livereload by default
@@ -60,13 +64,13 @@ ng build --prod
   + [Documentation for the technolgies and frameworks used](#documentation-for-the-technologies-and-frameworks-used)
   + [Articles and Code Examples](#articles-and-code-examples)
   + [Github Repositories](#github-repositories)
-  + [Books](#books) 
+  + [Books](#books)
 
 ## Dockerization
 
 The application provides full Docker support. You can use it for both development as well as production builds and deployments.
 
-### How to build and start the dockerized version of the application 
+### How to build and start the dockerized version of the application
 
 The Dockerization infrastructure is described in the `../docker-compose.yml` (respectively `../docker-compose.production.yml`.
 The application consists of two containers:
@@ -175,7 +179,7 @@ This section contains a collection of links to useful resources to help with the
 - Karma [Karma - Spectacular Test Runner for JavaScript](https://karma-runner.github.io/)
 - Protractor [Protractor - end to end testing for AngularJS](http://www.protractortest.org/)
 
-### Articles and Code Examples 
+### Articles and Code Examples
 
 - Angular 2 Forms Guide [The Ultimate Guide to Forms in Angular 2](http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/)
 - Angular 2 CRUD Example [A deep dive into Angular 2.0](https://www.opencredo.com/de/2015/07/08/a-deep-dive-into-angular-2-0/)

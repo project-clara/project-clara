@@ -7,7 +7,7 @@ RUN useradd --user-group --create-home --shell /bin/false app
 ENV HOME=/home/app
 WORKDIR $HOME
 
-RUN npm install -g @angular/cli@lates
+RUN npm install -g @angular/cli@latest
 
 ENV APP_NAME=project-clara
 

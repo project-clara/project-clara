@@ -3,7 +3,6 @@ MAINTAINER Christian Dobert <christian.dobert@clear-it.de>
 
 USER node
 
-
 ENV HOME=/home/node
 ENV APP_NAME=project-clara
 

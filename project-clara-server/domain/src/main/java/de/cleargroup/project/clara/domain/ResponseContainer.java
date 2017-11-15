@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResponseContainer<T>{
+public class ResponseContainer{
     @JsonProperty("data")
     private final Map<String,Object> data;
 

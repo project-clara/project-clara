@@ -85,12 +85,13 @@ public class SurveyServiceMock {
     @RequestMapping(value = "/configMock/setCredentials/reset")
     public String setCredentials(){
         authRequired = false;
+
         return "Cred resetted";
     }
 
 
     private ResponseEntity authOkOr(String xAuthToken, ResponseEntity okResponse){
-        if(token != null && !token.equals(xAuthToken)) {
+        if(authRequired && (token == null || !token.equals(xAuthToken))) {
             return UNAUTHORIZED;
         }
         return okResponse;

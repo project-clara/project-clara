@@ -21,9 +21,6 @@ public class SurveyMockHelper {
             if(id == 403L){
                 return new ResponseEntity(HttpStatus.FORBIDDEN);
             }
-            if(id == 404L){
-                return new ResponseEntity(HttpStatus.NOT_FOUND);
-            }
             if(id == 42L){
                 Map<String,Object> dataMap = new HashMap<>();
                 dataMap.put("survey",getSurvey42());

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseContainer{
@@ -20,7 +21,8 @@ public class ResponseContainer{
     }
 
     public ResponseContainer(Map<String,Object> data, ResponseMetadata responseMetadata) {
-        this.data = new HashMap<>(data);
+        Optional<Map<String,Object>> optData = Optional.ofNullable(data);
+        this.data = optData.orElse(new HashMap<>());
         this.responseMetadata = responseMetadata == null ? new ResponseMetadata() : responseMetadata;
     }
 

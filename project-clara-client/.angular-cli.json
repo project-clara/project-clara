@@ -19,9 +19,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "cla",
       "styles": [
+        "../node_modules/bootstrap/scss/bootstrap.scss",
+        "../node_modules/font-awesome/scss/font-awesome.scss",
+        "./assets/now-ui/sass/now-ui-kit.scss",
         "styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "./assets/now-ui/js/now-ui-kit.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

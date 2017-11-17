@@ -12,7 +12,7 @@ services:
     networks:
       - dev-network
     ports:
-      - '9080:4200'
+      - '9080:9080'
       
   project-clara-server-mock:
     build:
@@ -24,7 +24,7 @@ services:
     networks:
       - dev-network
     ports:
-      - '9090:9000'
+      - '9090:9090'
 
 networks:
   dev-network:

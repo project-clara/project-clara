@@ -14,7 +14,7 @@ import com.google.common.base.Preconditions;
         property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = TextAnswer.class, name = "TextAnswer"),
-        @JsonSubTypes.Type(value = TextAnswer.class, name = "TextAnswer"),
+        @JsonSubTypes.Type(value = TextAnswer.class, name = "SingleChoiceAnswer"),
 })
 public abstract class Answer {
     @JsonProperty

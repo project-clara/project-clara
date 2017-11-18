@@ -7,6 +7,16 @@
         margin-top: $margin-base-vertical;
     }
 }
+.section_question{
+
+      padding: 20px 0;
+      position: relative;
+      background: $white-color;
+
+      .row + .category{
+          margin-top: $margin-base-vertical;
+      }
+  }
 .section-navbars{
     padding-bottom: 0;
 }
@@ -72,6 +82,11 @@
     &.page-header-small{
         height: 60vh;
         max-height: 440px;
+    }
+
+    &.page-header-clara{
+        height: 80vh;
+        max-height: 300px;
     }
 
     &:after,

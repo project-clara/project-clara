@@ -39,7 +39,7 @@ export class AuthenticationService {
   login(username: string, password: string): Observable<boolean> {
     const requestOptions = {
       headers: this.getRequestHeaders(username, password),
-      observe: 'response'
+      observe: 'response' as 'response'
     };
     return this.http.post<HttpResponse<any>>(this.baseUrl + 'login', {}, requestOptions)
       .map(response => {

@@ -25,6 +25,7 @@
         "styles.scss"
       ],
       "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
         "./assets/now-ui/js/now-ui-kit.js"
       ],
       "environmentSource": "environments/environment.ts",

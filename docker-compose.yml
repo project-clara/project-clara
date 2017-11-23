@@ -6,7 +6,7 @@ services:
     build:
       context: ./project-clara-client
       dockerfile: ./.docker/project-clara-angular.development.dockerfile
-    command: ng serve --host 0.0.0.0 --port 4200
+    command: ng serve --host 0.0.0.0 --port 9080
     container_name: project-clara-angular-serve-dev
     image: project-clara-angular
     networks:

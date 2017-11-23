@@ -64,7 +64,7 @@ $ docker-compose build
 $ docker-compose up -d
 ```
 
-Now open your browser at [http://localhost:4200](http://localhost:4200)
+Now open your browser at [http://localhost:9080](http://localhost:9080)
 
 ### Production build and deployment
 

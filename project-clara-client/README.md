@@ -87,7 +87,7 @@ $ docker-compose build
 $ docker-compose up -d
 ```
 
-Now open your browser at [http://localhost:4200](http://localhost:4200)
+Now open your browser at [http://localhost:9080](http://localhost:9080)
 
 ### Production build and deployment
 
@@ -104,7 +104,7 @@ Now open your browser at [http://localhost:8080](http://localhost:8080)
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:9080/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

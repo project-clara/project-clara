@@ -26,6 +26,7 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/jquery-tooltip/jquery.tooltip.min.js",
         "./assets/now-ui/js/now-ui-kit.js"
       ],
       "environmentSource": "environments/environment.ts",

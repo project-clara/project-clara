@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
+import { SurveyComponent } from './survey/survey.component';
+import { QuestionComponent } from './question/question.component';
 
 /**
  * The AppModule provides the root module of the application. It imports all existing feature modules.
@@ -17,7 +19,9 @@ import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    SurveyComponent,
+    QuestionComponent
   ],
   imports: [
     // @angular/platform-browser

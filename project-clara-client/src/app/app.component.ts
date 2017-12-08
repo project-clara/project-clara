@@ -12,8 +12,6 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
 
-  title = 'cla';
-
   /**
    * Creates an instance of the AppComponent class.
    * @constructor

@@ -10,7 +10,7 @@ import java.util.List;
  * Created by jonas on 29.10.2017.
  */
 public class SingleChoiceQuestion extends Question{
-    @JsonProperty("questions")
+    @JsonProperty("choiceEntries")
     public final List<ChoiceEntry> choiceEntries;
 
     public SingleChoiceQuestion(Long id, String questionText, String description, boolean mandatory, List<ChoiceEntry> choiceEntries) {

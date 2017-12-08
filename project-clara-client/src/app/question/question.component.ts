@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Question } from '../domain/Question';
 
 @Component({
   selector: 'cla-question',
@@ -8,6 +9,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
+  @Input() questions: Question[];
   constructor() { }
 
   ngOnInit() {

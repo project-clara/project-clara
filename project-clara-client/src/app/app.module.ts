@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { SurveyComponent } from './survey/survey.component';
 import { QuestionComponent } from './question/question.component';
+import { SurveyService } from './survey.service';
 
 /**
  * The AppModule provides the root module of the application. It imports all existing feature modules.
@@ -39,7 +40,7 @@ import { QuestionComponent } from './question/question.component';
     // shared/shared.module
     SharedModule
   ],
-  providers: [],
+  providers: [SurveyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

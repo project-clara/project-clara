@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Survey } from '../domain/survey';
-import { SURVEY_MOCK } from '../mock-survey';
+import { SurveyService } from '../survey.service';
 
 @Component({
   selector: 'cla-survey',
@@ -10,11 +10,17 @@ import { SURVEY_MOCK } from '../mock-survey';
 })
 export class SurveyComponent implements OnInit {
 
-  survey: Survey  = SURVEY_MOCK;
+  survey: Survey;
 
-  constructor() { }
+  constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {
+        this.getSurvey(42);
   }
+
+  getSurvey(id: number): void {
+  this.surveyService.getSurvey(id)
+      .subscribe(survey => this.survey = survey);
+}
 
 }

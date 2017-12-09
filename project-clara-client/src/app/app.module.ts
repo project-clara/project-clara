@@ -13,6 +13,8 @@ import { HeaderComponent } from './header/header.component';
 import { SurveyComponent } from './survey/survey.component';
 import { QuestionComponent } from './question/question.component';
 import { SurveyService } from './survey.service';
+import { MessageService } from './message.service';
+import { MessagesComponent } from './messages/messages.component';
 
 /**
  * The AppModule provides the root module of the application. It imports all existing feature modules.
@@ -22,7 +24,8 @@ import { SurveyService } from './survey.service';
     AppComponent,
     HeaderComponent,
     SurveyComponent,
-    QuestionComponent
+    QuestionComponent,
+    MessagesComponent
   ],
   imports: [
     // @angular/platform-browser
@@ -40,7 +43,7 @@ import { SurveyService } from './survey.service';
     // shared/shared.module
     SharedModule
   ],
-  providers: [SurveyService],
+  providers: [SurveyService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

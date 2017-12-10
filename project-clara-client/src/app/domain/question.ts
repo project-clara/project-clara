@@ -1,4 +1,3 @@
-import { QuestionType } from './question-type';
 import { ChoiceEntry } from './choice-entry';
 
 export class Question {
@@ -6,6 +5,6 @@ export class Question {
   questionText: string;
   description: string;
   mandatory: boolean;
-  questionType: QuestionType;
+  questionType: string;
   choiceEntries: ChoiceEntry[];
 }

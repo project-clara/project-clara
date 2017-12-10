@@ -3,10 +3,10 @@
     <div>
       {{question.questionText}}
     </div>
-    <div *ngIf="question.questionType.questionType == 'TextQuestion'">
+    <div *ngIf="question.questionType == 'TextQuestion'">
       <textarea class="form-control" placeholder="{{question.description}}" rows="5"></textarea>
     </div>
-    <div *ngIf="question.questionType.questionType == 'SingleChoiceQuestion'">
+    <div *ngIf="question.questionType == 'SingleChoiceQuestion'">
       <div *ngFor="let choiceEntry of question.choiceEntries" class="radio">
         <input type="radio" name="q{{question.id}}" id="{{choiceEntry.key}}" value="{{choiceEntry.key}}">
         <label for="{{choiceEntry.key}}">
@@ -14,7 +14,7 @@
         </label>
       </div>
     </div>
-    <div *ngIf="question.questionType.questionType == 'MultiChoiceQuestion'">
+    <div *ngIf="question.questionType == 'MultiChoiceQuestion'">
       <div *ngFor="let choiceEntry of question.choiceEntries" class="checkbox">
         <input name="q{{question.id}}" id="{{choiceEntry.key}}" type="checkbox">
         <label for="{{choiceEntry.key}}">

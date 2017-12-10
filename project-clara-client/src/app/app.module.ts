@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -41,7 +42,9 @@ import { MessagesComponent } from './messages/messages.component';
     // core/core.module
     CoreModule,
     // shared/shared.module
-    SharedModule
+    SharedModule,
+    // HTTP Client for Rest-Calls
+    HttpClientModule
   ],
   providers: [SurveyService, MessageService],
   bootstrap: [AppComponent]

@@ -1,19 +1,6 @@
 import { Survey } from './domain/survey';
 import { Question } from './domain/question';
-import { QuestionType } from './domain/question-type';
 import { ChoiceEntry } from './domain/choice-entry';
-
-const TEXT_QUESTION_TYPE_MOCK: QuestionType = {
-  questionType: "TextQuestion"
-}
-
-const SINGLE_CHOICE_QUESTION_TYPE_MOCK: QuestionType = {
-  questionType: "SingleChoiceQuestion"
-}
-
-const MULTI_CHOICE_QUESTION_TYPE_MOCK: QuestionType = {
-  questionType: "MultiChoiceQuestion"
-}
 
 const TEXT_QUESTION_MOCK: Question[] = [
   {
@@ -21,7 +8,7 @@ const TEXT_QUESTION_MOCK: Question[] = [
     questionText: "Was hälst du generell von der Veranstaltung?",
     description: "Ich finde die Veranstaltung... ",
     mandatory: true,
-    questionType: TEXT_QUESTION_TYPE_MOCK,
+    questionType: "TextQuestion",
     choiceEntries: []
 }]
 
@@ -45,7 +32,7 @@ const SINGLE_CHOICE_QUESTION_MOCK: Question[] = [
     questionText: "Welches ist deine bevozugte Programmiersprache?",
     description: "Frage nach der Lieblingssprache",
     mandatory: true,
-    questionType: SINGLE_CHOICE_QUESTION_TYPE_MOCK,
+    questionType: "SingleChoiceQuestion",
     choiceEntries: SINGLE_CHOICE_ENTRIES_MOCK
 }]
 
@@ -56,7 +43,7 @@ const MULTI_CHOICE_QUESTION_MOCK: Question[] = [
     questionText: "Welche Themen interessieren dich am meisten?",
     description: "Technologien / Agile / Communities",
     mandatory: true,
-    questionType: MULTI_CHOICE_QUESTION_TYPE_MOCK,
+    questionType: "MultiChoiceQuestion",
     choiceEntries: MULTI_CHOICE_ENTRIES_MOCK
 }]
 
@@ -67,7 +54,7 @@ const MIXED_QUESTION_MOCK: Question[] = [
     questionText: "Was hälst du generell von der Veranstaltung?",
     description: "Ich finde die Veranstaltung... ",
     mandatory: true,
-    questionType: TEXT_QUESTION_TYPE_MOCK,
+    questionType: "TextChoiceQuestion",
     choiceEntries: []
   },
   {
@@ -75,7 +62,7 @@ const MIXED_QUESTION_MOCK: Question[] = [
     questionText: "Welches ist deine bevozugte Programmiersprache?",
     description: "Frage nach der Lieblingssprache",
     mandatory: true,
-    questionType: SINGLE_CHOICE_QUESTION_TYPE_MOCK,
+    questionType: "SingleChoiceQuestion",
     choiceEntries: SINGLE_CHOICE_ENTRIES_MOCK
 },
 {
@@ -83,7 +70,7 @@ const MIXED_QUESTION_MOCK: Question[] = [
   questionText: "Welche Themen interessieren dich am meisten?",
   description: "Technologien / Agile / Communities",
   mandatory: true,
-  questionType: MULTI_CHOICE_QUESTION_TYPE_MOCK,
+  questionType: "MultiChoiceQuestion",
   choiceEntries: MULTI_CHOICE_ENTRIES_MOCK
 }
 ]

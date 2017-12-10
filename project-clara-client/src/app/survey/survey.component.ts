@@ -15,12 +15,15 @@ export class SurveyComponent implements OnInit {
   constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {
-        this.getSurvey(42);
+    this.getSurvey(42);
   }
 
   getSurvey(id: number): void {
   this.surveyService.getSurvey(id)
-      .subscribe(survey => this.survey = survey);
-}
-
+      .subscribe(
+        res => {
+           this.survey = res.data.survey;
+        }
+      );
+  }
 }

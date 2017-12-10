@@ -16,8 +16,9 @@ public class ChoiceEntry {
     public final boolean preSelected;
 
 
-    public ChoiceEntry(String key, String choiceText){
+    public ChoiceEntry(String key, String choiceText, boolean preSelected){
         this.key = key;
         this.choiceText = choiceText;
+        this.preSelected = preSelected;
     }
 }

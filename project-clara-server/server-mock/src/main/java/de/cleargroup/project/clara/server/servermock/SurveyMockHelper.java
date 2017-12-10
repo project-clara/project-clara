@@ -47,14 +47,14 @@ public class SurveyMockHelper {
 
     private static Survey getSurvey42() {
         Question[] listOfQuestions = {
-                new TextQuestion("This is a question",null,true),
-                new TextQuestion("This is another question",null,false),
-                new SingleChoiceQuestion("What is the best language?",null,true,Arrays.asList(
-                        new ChoiceEntry("CSharp","C#"),
-                        new ChoiceEntry("Java","Java"),
-                        new ChoiceEntry("Asm","Assembler")
+                new TextQuestion(1L,"This is a question","",true),
+                new TextQuestion(2L,"This is another question","",false),
+                new SingleChoiceQuestion(3L,"What is the best language?","",true,Arrays.asList(
+                        new ChoiceEntry("CSharp","C#", false),
+                        new ChoiceEntry("Java","Java", true),
+                        new ChoiceEntry("Asm","Assembler", false)
                 ))
         };
-        return new Survey("Survey 42","The magic survey", Arrays.asList(listOfQuestions));
+        return new Survey(42L,"Survey 42","The magic survey", Arrays.asList(listOfQuestions));
     }
 }

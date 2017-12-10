@@ -53,6 +53,12 @@ public class SurveyMockHelper {
                         new ChoiceEntry("CSharp","C#", false),
                         new ChoiceEntry("Java","Java", true),
                         new ChoiceEntry("Asm","Assembler", false)
+                )),
+                new MultiChoiceQuestion(4L,"Which topics are most interesting?","Technologien / Agile / Communities",true,Arrays.asList(
+                        new ChoiceEntry("architektur","Architektur", false),
+                        new ChoiceEntry("docker","Docker", true),
+                        new ChoiceEntry("java9","Java 9", false),
+                        new ChoiceEntry("scrum","Scrum", false)
                 ))
         };
         return new Survey(42L,"Survey 42","The magic survey", Arrays.asList(listOfQuestions));

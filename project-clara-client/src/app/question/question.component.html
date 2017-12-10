@@ -8,7 +8,8 @@
     </div>
     <div *ngIf="question.questionType == 'SingleChoiceQuestion'">
       <div *ngFor="let choiceEntry of question.choiceEntries" class="radio">
-        <input type="radio" name="q{{question.id}}" id="{{choiceEntry.key}}" value="{{choiceEntry.key}}">
+        <input type="radio" name="q{{question.id}}" id="{{choiceEntry.key}}" value="{{choiceEntry.key}}"
+        ng-checked="choiceEntry.preSelected">
         <label for="{{choiceEntry.key}}">
             {{choiceEntry.choiceText}}
         </label>
@@ -16,7 +17,8 @@
     </div>
     <div *ngIf="question.questionType == 'MultiChoiceQuestion'">
       <div *ngFor="let choiceEntry of question.choiceEntries" class="checkbox">
-        <input name="q{{question.id}}" id="{{choiceEntry.key}}" type="checkbox">
+        <input name="q{{question.id}}" id="{{choiceEntry.key}}" type="checkbox"
+        ng-checked="choiceEntry.preSelected">
         <label for="{{choiceEntry.key}}">
           {{choiceEntry.choiceText}}
         </label>

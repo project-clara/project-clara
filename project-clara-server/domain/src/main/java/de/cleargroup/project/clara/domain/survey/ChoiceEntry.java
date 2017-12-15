@@ -12,8 +12,13 @@ public class ChoiceEntry {
     @JsonProperty("choiceText")
     public final String choiceText;
 
-    public ChoiceEntry(String key, String choiceText){
+    @JsonProperty("preSelected")
+    public final boolean preSelected;
+
+
+    public ChoiceEntry(String key, String choiceText, boolean preSelected){
         this.key = key;
         this.choiceText = choiceText;
+        this.preSelected = preSelected;
     }
 }

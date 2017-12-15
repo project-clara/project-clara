@@ -1,0 +1,8 @@
+<div *ngIf="survey" class="row survey">
+  <div class="col-md-20 ml-auto mr-auto text-center header">
+    <h2 class="title">{{survey.title}}</h2>
+    <h5 class="description">{{survey.description}}</h5>
+    <div class="separator separator-primary"></div>
+  </div>
+  <cla-question [questions]="survey.questions"></cla-question>
+</div>

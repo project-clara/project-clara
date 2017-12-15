@@ -1,0 +1,33 @@
+<div class="section_question" *ngIf="messageService.errorMessages.length">
+  <div class="alert alert-danger" role="alert" *ngFor='let errorMessage of messageService.errorMessages;  let i = index'>
+  	<div class="container">
+  		<div class="alert-icon">
+  			<i class="now-ui-icons objects_support-17"></i>
+  		</div>
+  		<strong>Fehler</strong> {{errorMessage}}
+  		<button type="button" class="close" data-dismiss="alert" aria-label="Close"
+        (click)="messageService.removeErrorMessage(i)">
+  			<span aria-hidden="true">
+  				<i class="now-ui-icons ui-1_simple-remove"></i>
+  			</span>
+  		</button>
+  	</div>
+  </div>
+</div>
+
+<div class="section_question" *ngIf="messageService.notifications.length">
+  <div class="alert alert-info" role="alert" *ngFor='let notification of messageService.notifications;  let i = index'>
+    <div class="container">
+      <div class="alert-icon">
+        <i class="now-ui-icons travel_info"></i>
+      </div>
+       <strong>Information</strong>  {{notification}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+        (click)="messageService.removeNotification(i)">
+          <span aria-hidden="true">
+          <i class="now-ui-icons ui-1_simple-remove"></i>
+        </span>
+      </button>
+    </div>
+    </div>
+</div>

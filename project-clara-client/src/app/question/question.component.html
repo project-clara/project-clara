@@ -1,0 +1,28 @@
+<div *ngIf="questions">
+  <div *ngFor="let question of questions" class="section_question">
+    <div>
+      {{question.questionText}}
+    </div>
+    <div *ngIf="question.questionType == 'TextQuestion'">
+      <textarea class="form-control" placeholder="{{question.description}}" rows="5"></textarea>
+    </div>
+    <div *ngIf="question.questionType == 'SingleChoiceQuestion'">
+      <div *ngFor="let choiceEntry of question.choiceEntries" class="radio">
+        <input type="radio" name="q{{question.id}}" id="{{choiceEntry.key}}" value="{{choiceEntry.key}}"
+        ng-checked="choiceEntry.preSelected">
+        <label for="{{choiceEntry.key}}">
+            {{choiceEntry.choiceText}}
+        </label>
+      </div>
+    </div>
+    <div *ngIf="question.questionType == 'MultiChoiceQuestion'">
+      <div *ngFor="let choiceEntry of question.choiceEntries" class="checkbox">
+        <input name="q{{question.id}}" id="{{choiceEntry.key}}" type="checkbox"
+        ng-checked="choiceEntry.preSelected">
+        <label for="{{choiceEntry.key}}">
+          {{choiceEntry.choiceText}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

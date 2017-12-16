@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { Question } from '../domain/Question';
+import { Question } from '../domain/question';
 
 @Component({
   selector: 'cla-question',

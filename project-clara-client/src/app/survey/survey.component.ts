@@ -22,7 +22,9 @@ export class SurveyComponent implements OnInit {
   this.surveyService.getSurvey(id)
       .subscribe(
         res => {
-           this.survey = res.data.survey;
+          if(res != undefined && res.data != undefined){
+            this.survey = res.data.survey;
+          }
         }
       );
   }

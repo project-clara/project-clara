@@ -1,19 +1,19 @@
-version: '2'
+version: "3"
 
 services:
-
   project-clara-angular:
     build:
       context: ./project-clara-client
       dockerfile: ./.docker/project-clara-angular.development.dockerfile
-    command: ng serve --host 0.0.0.0 --port 9080
+    command: ng serve --host 0.0.0.0 --port 9080 --disable-host-check
     container_name: project-clara-angular-serve-dev
     image: project-clara-angular
-    networks:
-      - dev-network
     ports:
-      - '9080:9080'
-      
+      - '9080'
+    environment:
+      - VIRTUAL_HOST=clara-beta.clear-it.de
+#      - VIRTUAL_PORT=4431
+
   project-clara-server-mock:
     build:
       context: ./project-clara-server
@@ -21,11 +21,10 @@ services:
     command: gradle server-mock:bootRun
     container_name: project-clara-server-mock-dev
     image: project-clara-server-mock
-    networks:
-      - dev-network
     ports:
-      - '9090:9090'
+      - '9090'
 
 networks:
-  dev-network:
-    driver: bridge
+  default:
+    external:
+      name: nginx-proxy

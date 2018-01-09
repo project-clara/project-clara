@@ -37,7 +37,7 @@ public class SurveyMockHelper {
 
     public static ResponseEntity<ResponseContainer> getResponseForAllSurveys(){
         Map<String,Object> dataMap = new HashMap<>();
-        dataMap.put("surveys",new Survey[]{getSurvey42()});
+        dataMap.put("surveys",new Survey[]{getSurvey42(), getSurvey43(), getSurvey44()});
         return new ResponseEntity<>(new ResponseContainer(dataMap), HttpStatus.OK);
     }
 
@@ -61,6 +61,44 @@ public class SurveyMockHelper {
                         new ChoiceEntry("scrum","Scrum", false)
                 ))
         };
-        return new Survey(42L,"Survey 42","The magic survey", Arrays.asList(listOfQuestions));
+        return new Survey(42L,"JavaLand 2016","JavaLand 2016 in Brühl", Arrays.asList(listOfQuestions));
+    }
+
+    private static Survey getSurvey43() {
+        Question[] listOfQuestions = {
+                new TextQuestion(1L,"What is the best location for lunch there?","",true),
+                new TextQuestion(2L,"What do you think about Speaker I?","",false),
+                new SingleChoiceQuestion(3L,"What was your first talk?","",true,Arrays.asList(
+                        new ChoiceEntry("tdd","Test-Driven-Development", false),
+                        new ChoiceEntry("bdd","Behaviour-Driven-Development with Spring", true),
+                        new ChoiceEntry("junit","Quo vadis - JUnit im Wandel der Zeit", false)
+                )),
+                new MultiChoiceQuestion(4L,"Which topics are most interesting?","Technologien / Agile / Communities",true,Arrays.asList(
+                        new ChoiceEntry("architektur","Architektur", false),
+                        new ChoiceEntry("junit","JUnit 5", true),
+                        new ChoiceEntry("java10","Java 10", false),
+                        new ChoiceEntry("scrum2","Scrum 2", false)
+                ))
+        };
+        return new Survey(43L,"JavaLand 2017","JavaLand 2017 in Brühl", Arrays.asList(listOfQuestions));
+    }
+
+    private static Survey getSurvey44() {
+        Question[] listOfQuestions = {
+                new TextQuestion(1L,"What is your motivation to go there?","",true),
+                new TextQuestion(2L,"What do you think about Speaker IV?","",false),
+                new SingleChoiceQuestion(3L,"What was your first talk?","",true,Arrays.asList(
+                        new ChoiceEntry("nocode","Software development without code?", false),
+                        new ChoiceEntry("sass","Nice pages by SASS", true),
+                        new ChoiceEntry("ee4J","EE4J - Names change by the time", false)
+                )),
+                new MultiChoiceQuestion(4L,"Which topics are most interesting?","Technologien / Agile / Communities",true,Arrays.asList(
+                        new ChoiceEntry("architektur","Architektur", false),
+                        new ChoiceEntry("junit","JUnit 5.1", true),
+                        new ChoiceEntry("java10-3","Java 10 Patch 3", false),
+                        new ChoiceEntry("scrum3","Scrum 3", false)
+                ))
+        };
+        return new Survey(44L,"JavaLand 2018","JavaLand 2017 in Brühl", Arrays.asList(listOfQuestions));
     }
 }

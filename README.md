@@ -19,7 +19,7 @@ This project follows the [Semantic Versioning 2.0.0](http://semver.org/) specifi
 ## How to start the client
 
 ```bash
-git clone git@github.com:project-clara/project-clara.git
+git clone https://github.com/project-clara/project-clara.git
 cd project-clara/project-clara-client
 # install the project's dependencies
 npm install

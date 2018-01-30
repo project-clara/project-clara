@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MessageService } from '../message.service';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {MessageService} from '../message.service';
 
 @Component({
   selector: 'cla-messages',
@@ -10,7 +10,6 @@ import { MessageService } from '../message.service';
 export class MessagesComponent implements OnInit {
 
   constructor(public messageService: MessageService) {
-    
   }
 
   ngOnInit() {

@@ -1,12 +1,14 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import {NgModule, ModuleWithProviders} from '@angular/core';
 
-import { AuthenticationGuard } from './authentication.guard';
-import { AuthenticationService } from './authentication.service';
+import {AuthenticationGuard} from './authentication.guard';
+import {AuthenticationService} from './authentication.service';
 
 /**
  * The AuthenticationModule provides the Authentication guard and Authentication service.
  */
-@NgModule({ })
+@NgModule({
+  declarations: []
+})
 export class AuthenticationModule {
 
   /**

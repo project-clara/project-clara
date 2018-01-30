@@ -47,14 +47,15 @@ public class SurveyServiceMock {
         String[] usernamePassword = credentials.split(":");
 
         if(usernamePassword.length != 2){
-            return new ResponseEntity<>("No Credentials given", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Username / Password required", HttpStatus.BAD_REQUEST);
         }
         if(!usernamePassword[0].equals(currentUsername)){
-            return new ResponseEntity<>("No Credentials given", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Username not correct", HttpStatus.BAD_REQUEST);
         }
 
         if(!usernamePassword[1].equals(currentPassword)) {
-            return new ResponseEntity<>("No Credentials given", HttpStatus.BAD_REQUEST);
+            //FIXME: Only useful for debugging
+            return new ResponseEntity<>("Password not correct", HttpStatus.BAD_REQUEST);
         }
 
             HttpHeaders responseHeaders = new HttpHeaders();

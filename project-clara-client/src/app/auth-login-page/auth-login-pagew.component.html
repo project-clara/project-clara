@@ -1,0 +1,14 @@
+<form #userLoginData="ngForm">
+
+  <div class="form-group">
+    <label for="inpUsername">Username</label>
+    <input type="text" class="form-control" id="inpUsername" aria-describedby="hlpForUsername" placeholder="Enter username" required [(ngModel)]="model.username" name="username">
+    <small id="hlpForUsername" class="form-text text-muted">Enter your username</small>
+  </div>
+  <div class="form-group">
+    <label for="inpPassword">Password</label>
+    <input type="password" class="form-control" id="inpPassword" placeholder="Password" required [(ngModel)]="model.password" name="password">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="this.submitUsernamePassword()">Submit</button>
+</form>
+

@@ -16,6 +16,8 @@ import { QuestionComponent } from './question/question.component';
 import { SurveyService } from './survey.service';
 import { MessageService } from './message.service';
 import { MessagesComponent } from './messages/messages.component';
+import {AuthLandingPageComponent} from './auth-landing-page/auth-landing-page.component';
+import { AuthLoginPagewComponent } from './auth-login-page/auth-login-pagew.component';
 
 /**
  * The AppModule provides the root module of the application. It imports all existing feature modules.
@@ -26,7 +28,9 @@ import { MessagesComponent } from './messages/messages.component';
     HeaderComponent,
     SurveyComponent,
     QuestionComponent,
-    MessagesComponent
+    MessagesComponent,
+    AuthLandingPageComponent,
+    AuthLoginPagewComponent
   ],
   imports: [
     // @angular/platform-browser

@@ -41,7 +41,7 @@ export class AuthenticationService {
       headers: this.getRequestHeaders(username, password),
       observe: 'response' as 'response'
     };
-    return this.http.post<HttpResponse<any>>(this.baseUrl + 'login', {}, requestOptions)
+    return this.http.post<HttpResponse<any>>(this.baseUrl + 'auth/login', {}, requestOptions)
       .map(response => {
         const xAuthToken = response.headers.get('x-auth-token');
         if (response.ok && !!xAuthToken) {

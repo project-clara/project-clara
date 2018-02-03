@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-//import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import {HttpHeaders, HttpClient, HttpResponse} from '@angular/common/http'
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import {environment} from '../../../environments/environment';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 /**
  * This class implements a JWT authentication for the application.
@@ -14,8 +14,9 @@ export class AuthenticationService {
   /**
    * x-auth-token for further communication with the server
    */
-  token: string;
-  baseUrl: string;
+  private token: string;
+  private baseUrl: string;
+  private userAuthenticated$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
 
   /**
@@ -46,6 +47,7 @@ export class AuthenticationService {
         const xAuthToken = response.headers.get('x-auth-token');
         if (response.ok && !!xAuthToken) {
           this.storeUserAndToken(username, xAuthToken);
+          this.userAuthenticated$.next(true);
           return true;
         }
         return false;
@@ -57,6 +59,7 @@ export class AuthenticationService {
    */
   logout(): void {
     this.token = null;
+    this.userAuthenticated$.next(false);
     localStorage.removeItem('currentUser');
   }
 
@@ -72,8 +75,8 @@ export class AuthenticationService {
    * Returns if there is a user currently logged in.
    * @return {boolean} `true` if a user is currently logged in, otherwise `false`.
    */
-  isUserLoggedIn(): boolean {
-    return this.getCurrentUser() !== null;
+  isUserLoggedIn(): Observable<boolean> {
+    return this.userAuthenticated$.asObservable();
   }
 
   /**

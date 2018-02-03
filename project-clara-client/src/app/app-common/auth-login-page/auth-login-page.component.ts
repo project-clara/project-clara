@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthenticationService} from '../core/authentication/authentication.service';
-import {MessageService} from '../message.service';
+import {AuthenticationService} from '../../core/authentication/authentication.service';
+import {MessageService} from '../../message.service';
 
 class LoginModel {
   username = '';
@@ -13,10 +13,10 @@ enum LoginState {
 
 @Component({
   selector: 'cla-auth-login-pagew',
-  templateUrl: './auth-login-pagew.component.html',
-  styleUrls: ['./auth-login-pagew.component.scss']
+  templateUrl: './auth-login-page.component.html',
+  styleUrls: ['./auth-login-page.component.scss']
 })
-export class AuthLoginPagewComponent implements OnInit, OnDestroy {
+export class AuthLoginPageComponent implements OnInit, OnDestroy {
   model = new LoginModel();
   loginState = LoginState.PENDING;
 
@@ -39,8 +39,8 @@ export class AuthLoginPagewComponent implements OnInit, OnDestroy {
 
   submitUsernamePassword(): void {
     this.authService.login(this.model.username, this.model.password).subscribe(
-      this.loginResponse.apply(this),
-      this.loginError.apply(this)
+      this.loginResponse.bind(this),
+      this.loginError.bind(this)
     );
   }
 

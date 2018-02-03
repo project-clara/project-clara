@@ -25,14 +25,6 @@ export class NavigationComponent implements OnInit {
   ngOnInit() { }
 
   /**
-   * Returns if a user is currently logged in.
-   * @return {boolean} `true` if a user is logged in, else `false`.
-   */
-  isUserLoggedIn(): boolean {
-    return this.authenticationService.isUserLoggedIn();
-  }
-
-  /**
    * Logs out the current user.
    * @return {boolean} `false` after the service call completed.
    */

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Survey } from '../domain/survey';
+import { Survey } from './domain/survey';
 import { SurveyService } from '../survey.service';
 
 @Component({

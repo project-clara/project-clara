@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthLandingPageComponent } from './auth-landing-page.component';
+import { LoginStateNavbarComponent } from './login-state-navbar.component';
 
-describe('AuthLandingPageComponent', () => {
-  let component: AuthLandingPageComponent;
-  let fixture: ComponentFixture<AuthLandingPageComponent>;
+describe('LoginStateNavbarComponent', () => {
+  let component: LoginStateNavbarComponent;
+  let fixture: ComponentFixture<LoginStateNavbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthLandingPageComponent ]
+      declarations: [ LoginStateNavbarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthLandingPageComponent);
+    fixture = TestBed.createComponent(LoginStateNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

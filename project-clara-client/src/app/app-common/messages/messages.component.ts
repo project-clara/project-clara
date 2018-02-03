@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {MessageService} from '../message.service';
+import {MessageService} from '../../message.service';
 
 @Component({
   selector: 'cla-messages',

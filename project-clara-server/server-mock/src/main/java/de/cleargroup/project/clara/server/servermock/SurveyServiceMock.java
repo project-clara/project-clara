@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import javax.swing.text.html.Option;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
@@ -60,7 +61,8 @@ public class SurveyServiceMock {
 
             HttpHeaders responseHeaders = new HttpHeaders();
             token = UUID.randomUUID().toString();
-            responseHeaders.set("X-Auth-Token", token);
+            responseHeaders.set("x-auth-token", token);
+            responseHeaders.set("access-control-expose-headers","x-auth-token");
             return new ResponseEntity(responseHeaders, HttpStatus.OK);
     }
 

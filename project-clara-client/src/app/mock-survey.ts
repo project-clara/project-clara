@@ -1,6 +1,6 @@
-import { Survey } from './domain/survey';
-import { Question } from './domain/question';
-import { ChoiceEntry } from './domain/choice-entry';
+import { Survey } from './survey/domain/survey';
+import { Question } from './survey/domain/question';
+import { ChoiceEntry } from './survey/domain/choice-entry';
 
 const TEXT_QUESTION_MOCK: Question[] = [
   {

@@ -10,27 +10,18 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { HeaderComponent } from './header/header.component';
-import { SurveyComponent } from './survey/survey.component';
-import { QuestionComponent } from './question/question.component';
 import { SurveyService } from './survey.service';
 import { MessageService } from './message.service';
-import { MessagesComponent } from './messages/messages.component';
-import {AuthLandingPageComponent} from './auth-landing-page/auth-landing-page.component';
-import { AuthLoginPagewComponent } from './auth-login-page/auth-login-pagew.component';
+import {SurveyModule} from './survey/survey.module';
+import {AppCommonModule} from './app-common/app-common.module';
 
 /**
  * The AppModule provides the root module of the application. It imports all existing feature modules.
  */
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    SurveyComponent,
-    QuestionComponent,
-    MessagesComponent,
-    AuthLandingPageComponent,
-    AuthLoginPagewComponent
+    AppComponent
+
   ],
   imports: [
     // @angular/platform-browser
@@ -48,7 +39,9 @@ import { AuthLoginPagewComponent } from './auth-login-page/auth-login-pagew.comp
     // shared/shared.module
     SharedModule,
     // HTTP Client for Rest-Calls
-    HttpClientModule
+    HttpClientModule,
+    SurveyModule,
+    AppCommonModule
   ],
   providers: [SurveyService, MessageService],
   bootstrap: [AppComponent]

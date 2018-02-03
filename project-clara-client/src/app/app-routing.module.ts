@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import { SurveyComponent } from './survey/survey.component';
-import {AuthLoginPagewComponent} from './auth-login-page/auth-login-pagew.component';
+import {AuthLoginPageComponent} from './app-common/auth-login-page/auth-login-page.component';
 
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '', redirectTo: '/survey', pathMatch: 'full'
   },
   {
-    path: 'login', component: AuthLoginPagewComponent
+    path: 'login', component: AuthLoginPageComponent
   }
 
 ] ;

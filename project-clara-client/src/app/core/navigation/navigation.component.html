@@ -2,7 +2,7 @@
   <a class="iconav-brand" [routerLink]="['']">
     <span class="icon icon-leaf iconav-brand-icon"></span>
   </a>
-  <div class="iconav-slider" [hidden]="!isUserLoggedIn()">
+  <div class="iconav-slider" [hidden]="this.authenticationService.isUserLoggedIn() | async">
     <ul class="nav nav-pills iconav-nav flex-md-column">
       <li class="nav-item">
         <a class="nav-link" title="Logout" data-toggle="tooltip" data-placement="right" data-container="body" [routerLink]="['/login']" (click)="onLogoutUser()">

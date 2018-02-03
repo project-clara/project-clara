@@ -1,4 +1,4 @@
-<form #userLoginData="ngForm">
+<form #userLoginData="ngForm" [hidden]="(this.authService.isUserLoggedIn() | async)">
 
   <div class="form-group">
     <label for="inpUsername">Username</label>
@@ -11,4 +11,5 @@
   </div>
   <button type="submit" class="btn btn-primary" (click)="this.submitUsernamePassword()">Submit</button>
 </form>
+<span style="text-align: center;" [hidden]="!(this.authService.isUserLoggedIn() | async)">You are allready logged in</span>
 

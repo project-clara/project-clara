@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {AuthLandingPageComponent} from '../auth-landing-page/auth-landing-page.component';
+import {LoginStateNavbarComponent} from '../login-state-navbar/login-state-navbar.component';
 
 @Component({
   selector: 'cla-header',

@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 
 import {environment} from '../../../environments/environment';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {createUrlResolverWithoutPackagePrefix} from '@angular/compiler';
 
 /**
  * This class implements a JWT authentication for the application.
@@ -27,8 +28,10 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
     // set token if saved in local storage
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
+    this.token = currentUser.token;
     this.baseUrl = environment.apiBaseUrl;
+    this.userAuthenticated$.next(!!currentUser);
+    console.log(`ctor ${JSON.stringify(currentUser)}`);
   }
 
   /**
@@ -58,9 +61,9 @@ export class AuthenticationService {
    * Logs out the current user by removing it from the LocalStorage.
    */
   logout(): void {
+    localStorage.removeItem('currentUser');
     this.token = null;
     this.userAuthenticated$.next(false);
-    localStorage.removeItem('currentUser');
   }
 
   /**

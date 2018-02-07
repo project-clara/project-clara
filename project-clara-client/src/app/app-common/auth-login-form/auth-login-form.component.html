@@ -1,5 +1,4 @@
-<form #userLoginData="ngForm" [hidden]="(this.authService.isUserLoggedIn() | async)">
-
+<form (ngSubmit)="onSubmit(authLoginForm)" #authLoginForm="ngForm" [hidden]="(authService.isUserLoggedIn() | async)">
   <div class="form-group">
     <label for="inpUsername">Username</label>
     <input type="text" class="form-control" id="inpUsername" aria-describedby="hlpForUsername" placeholder="Enter username" required [(ngModel)]="model.username" name="username">
@@ -9,7 +8,10 @@
     <label for="inpPassword">Password</label>
     <input type="password" class="form-control" id="inpPassword" placeholder="Password" required [(ngModel)]="model.password" name="password">
   </div>
-  <button type="submit" class="btn btn-primary" (click)="this.submitUsernamePassword()">Submit</button>
+  <button type="submit" class="btn btn-primary" >Submit</button>
+  <!--
+  (click)="this.submitUsernamePassword()"
+  -->
 </form>
 <span style="text-align: center;" [hidden]="!(this.authService.isUserLoggedIn() | async)">You are allready logged in</span>
 

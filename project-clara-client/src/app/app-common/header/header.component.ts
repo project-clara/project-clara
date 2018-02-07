@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {LoginStateNavbarComponent} from '../login-state-navbar/login-state-navbar.component';
 
 @Component({
@@ -10,9 +10,10 @@ import {LoginStateNavbarComponent} from '../login-state-navbar/login-state-navba
 export class HeaderComponent implements OnInit {
 
 
-    title = 'Project Clara - Umfragen';
+  title = 'Project Clara - Umfragen';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

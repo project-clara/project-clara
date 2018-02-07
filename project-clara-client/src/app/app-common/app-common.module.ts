@@ -3,17 +3,24 @@ import { CommonModule } from '@angular/common';
 import {HeaderComponent} from './header/header.component';
 import {MessagesComponent} from './messages/messages.component';
 import {LoginStateNavbarComponent} from './login-state-navbar/login-state-navbar.component';
-import {AuthLoginPageComponent} from './auth-login-page/auth-login-page.component';
+import {AuthLoginFormComponent} from './auth-login-form/auth-login-form.component';
+import { FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations: [
     HeaderComponent,
     MessagesComponent,
     LoginStateNavbarComponent,
-    AuthLoginPageComponent
+    AuthLoginFormComponent
+  ], exports: [
+    HeaderComponent,
+    MessagesComponent,
+    LoginStateNavbarComponent,
+    AuthLoginFormComponent
   ]
 })
 export class AppCommonModule { }

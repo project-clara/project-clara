@@ -92,6 +92,17 @@ public class SurveyServiceMock {
         return "Cred resetted";
     }
 
+    @RequestMapping(value = "/help")
+    public String help(){
+        return "<html>" +
+                "<body>" +
+                "<p><a href='/configMock/setCredentials/user/pass'>Set Username to user and Password to pass</a></p>" +
+                "<p><a href='/configMock/setCredentials/reset'>Reset Username and Password </a></p>" +
+                "</body>" +
+                "</html>";
+
+    }
+
 
     private ResponseEntity authOkOr(String xAuthToken, ResponseEntity okResponse){
         if(authRequired && (token == null || !token.equals(xAuthToken))) {

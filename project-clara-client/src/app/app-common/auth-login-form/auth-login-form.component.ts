@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../core/authentication/authentication.service';
 import {MessageService} from '../../message.service';
+import {NgForm} from '@angular/forms';
 
 class LoginModel {
   username = '';
@@ -12,11 +13,11 @@ enum LoginState {
 }
 
 @Component({
-  selector: 'cla-auth-login-pagew',
-  templateUrl: './auth-login-page.component.html',
-  styleUrls: ['./auth-login-page.component.scss']
+  selector: 'cla-auth-login-form',
+  templateUrl: './auth-login-form.component.html',
+  styleUrls: ['./auth-login-form.component.scss']
 })
-export class AuthLoginPageComponent implements OnInit, OnDestroy {
+export class AuthLoginFormComponent implements OnInit, OnDestroy {
   model = new LoginModel();
   loginState = LoginState.PENDING;
 
@@ -58,4 +59,14 @@ export class AuthLoginPageComponent implements OnInit, OnDestroy {
     this.messageService.addErrorMessage('Login failed');
     this.loginState = LoginState.FAILED;
   }
+
+  onSubmit(userLoginData: NgForm) {
+    this.authService.login(this.model.username, this.model.password).subscribe(
+      this.loginResponse.bind(this),
+      this.loginError.bind(this)
+    );
+
+
+  }
+
 }

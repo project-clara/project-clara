@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSubmit(addQuestionForm)" #addQuestionForm="ngForm">
+  <div class="form-group">
+    <label for="inpQuestionLabel">Question Label:</label>
+    <input type="text" class="form-control" id="inpQuestionLabel" aria-describedby="hlpForQuestionLabel"
+           placeholder="Question Label" [(ngModel)]="question.questionLabel" name="questionLabel">
+    <small id="hlpForQuestionLabel" class="form-text text-muted">The Question which will the client see</small>
+  </div>
+  <div class="form-group">
+    <label for="optQuestionType">Question Type:</label>
+    <select class="custom-select" id="optQuestionType" required [(ngModel)]="question.type" name="questionType">
+      <option value="TextQuestion">Text question</option>
+      <option value="SingleChoiceQuestion">Single choice question</option>
+    </select>
+  </div>
+  <div class="form-group" *ngIf="question.type === 'SingleChoiceQuestion'">
+    <button type="button" (click)="addChoice()">Add Choice</button>
+    <div *ngFor="let choiceEntry of question.choices;let i=index" class="input-group">
+      <input type="text" class="form-control" placeholder="Choice key" [(ngModel)]="choiceEntry.key"
+             name="choiceEntryKey{{i}}">
+      <input type="text" class="form-control" placeholder="Choice entry" [(ngModel)]="choiceEntry.choiceText"
+             name="choiceEntryText{{i}}">
+      <div class="input-group-append">
+        <button (click)="removeChoice(i)">Remove Choice</button>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Question</button>
+</form>
+<form (ngSubmit)="onSubmitSecond(surveyForm)" #surveyForm="ngForm">
+  <div class="form-group" *ngFor="let q of questions;let i=index">
+    <input type="text" class="form-control" placeholder="Question Text" [(ngModel)]="q.questionText"
+           name="questionText{{i}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Save Survey</button>
+</form>

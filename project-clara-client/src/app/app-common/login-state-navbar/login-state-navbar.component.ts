@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../core/authentication/authentication.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'cla-login-state-navbar',
@@ -12,5 +13,13 @@ export class LoginStateNavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  get isUserLoggedIn(): Observable<boolean> {
+    return this.authService.isUserLoggedIn();
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

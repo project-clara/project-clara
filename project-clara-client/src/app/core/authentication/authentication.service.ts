@@ -28,7 +28,8 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
     // set token if saved in local storage
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser.token;
+    this.token = !!currentUser ? currentUser.token : null;
+
     this.baseUrl = environment.apiBaseUrl;
     this.userAuthenticated$.next(!!currentUser);
     console.log(`ctor ${JSON.stringify(currentUser)}`);

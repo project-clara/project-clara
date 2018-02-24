@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import { SurveyComponent } from './survey/survey.component';
 import {AuthLoginFormComponent} from './app-common/auth-login-form/auth-login-form.component';
+import {CreateSurveyComponent} from './survey/create-survey/create-survey.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,10 @@ const routes: Routes = [
   },
   {
     path: 'login', component: AuthLoginFormComponent
-  }
+  },
+  {
+    path: 'survey/create', component: CreateSurveyComponent
+  },
 
 ] ;
 /**

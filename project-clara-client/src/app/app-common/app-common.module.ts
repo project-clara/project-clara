@@ -5,11 +5,13 @@ import {MessagesComponent} from './messages/messages.component';
 import {LoginStateNavbarComponent} from './login-state-navbar/login-state-navbar.component';
 import {AuthLoginFormComponent} from './auth-login-form/auth-login-form.component';
 import { FormsModule} from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   declarations: [
     HeaderComponent,

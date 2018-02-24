@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Question } from '../domain/question';
+import { QuestionType } from '../domain/question-type';
 
 @Component({
   selector: 'cla-question',
@@ -9,10 +10,13 @@ import { Question } from '../domain/question';
 })
 export class QuestionComponent implements OnInit {
 
+  QuestionType = QuestionType;
+
   @Input() questions: Question[];
   constructor() { }
 
   ngOnInit() {
+    console.log(this.questions);
   }
 
 }

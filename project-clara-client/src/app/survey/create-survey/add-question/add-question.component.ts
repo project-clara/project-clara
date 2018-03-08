@@ -2,10 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {QuestionPrototype} from './question-prototype';
 import {ChoiceEntry} from '../../domain/choice-entry';
 import {Question} from '../../domain/question';
-
-enum QuestionType {
-  TextQuestion, SingleChoiceQuestion
-}
+import {QuestionType} from '../../domain/question-type';
 
 @Component({
   selector: 'cla-add-question',
@@ -29,7 +26,7 @@ export class AddQuestionComponent implements OnInit {
     newQuestion.questionText = this.question.questionLabel;
     const questionType: QuestionType = QuestionType[this.question.type];
     newQuestion.choiceEntries = questionType === QuestionType.SingleChoiceQuestion ? this.question.choices : [];
-    newQuestion.questionType = QuestionType[questionType];
+    newQuestion.questionType = questionType;
     this.questions.push(newQuestion);
     console.log(newQuestion);
   }

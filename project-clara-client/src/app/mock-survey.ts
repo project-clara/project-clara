@@ -1,6 +1,7 @@
 import { Survey } from './survey/domain/survey';
 import { Question } from './survey/domain/question';
 import { ChoiceEntry } from './survey/domain/choice-entry';
+import {QuestionType} from './survey/domain/question-type';
 
 const TEXT_QUESTION_MOCK: Question[] = [
   {
@@ -8,7 +9,7 @@ const TEXT_QUESTION_MOCK: Question[] = [
     questionText: "Was hälst du generell von der Veranstaltung?",
     description: "Ich finde die Veranstaltung... ",
     mandatory: true,
-    questionType: "TextQuestion",
+    questionType: QuestionType.TextQuestion,
     choiceEntries: []
 }]
 
@@ -32,7 +33,7 @@ const SINGLE_CHOICE_QUESTION_MOCK: Question[] = [
     questionText: "Welches ist deine bevozugte Programmiersprache?",
     description: "Frage nach der Lieblingssprache",
     mandatory: true,
-    questionType: "SingleChoiceQuestion",
+    questionType: QuestionType.SingleChoiceQuestion,
     choiceEntries: SINGLE_CHOICE_ENTRIES_MOCK
 }]
 
@@ -43,7 +44,7 @@ const MULTI_CHOICE_QUESTION_MOCK: Question[] = [
     questionText: "Welche Themen interessieren dich am meisten?",
     description: "Technologien / Agile / Communities",
     mandatory: true,
-    questionType: "MultiChoiceQuestion",
+    questionType: QuestionType.MultiChoiceQuestion,
     choiceEntries: MULTI_CHOICE_ENTRIES_MOCK
 }]
 
@@ -54,7 +55,7 @@ const MIXED_QUESTION_MOCK: Question[] = [
     questionText: "Was hälst du generell von der Veranstaltung?",
     description: "Ich finde die Veranstaltung... ",
     mandatory: true,
-    questionType: "TextChoiceQuestion",
+    questionType: QuestionType.TextQuestion,
     choiceEntries: []
   },
   {
@@ -62,7 +63,7 @@ const MIXED_QUESTION_MOCK: Question[] = [
     questionText: "Welches ist deine bevozugte Programmiersprache?",
     description: "Frage nach der Lieblingssprache",
     mandatory: true,
-    questionType: "SingleChoiceQuestion",
+    questionType: QuestionType.SingleChoiceQuestion,
     choiceEntries: SINGLE_CHOICE_ENTRIES_MOCK
 },
 {
@@ -70,7 +71,7 @@ const MIXED_QUESTION_MOCK: Question[] = [
   questionText: "Welche Themen interessieren dich am meisten?",
   description: "Technologien / Agile / Communities",
   mandatory: true,
-  questionType: "MultiChoiceQuestion",
+  questionType: QuestionType.MultiChoiceQuestion,
   choiceEntries: MULTI_CHOICE_ENTRIES_MOCK
 }
 ]

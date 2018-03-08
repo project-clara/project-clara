@@ -1,5 +1,5 @@
 export enum QuestionType {
-  TextQuestion,
-  SingleChoiceQuestion,
-  MultiChoiceQuestion
+  TextQuestion = 'TextQuestion',
+  SingleChoiceQuestion = 'SingleChoiceQuestion',
+  MultiChoiceQuestion = 'MultiChoiceQuestion'
 }

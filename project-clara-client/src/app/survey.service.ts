@@ -45,4 +45,14 @@ export class SurveyService {
   }
 
 
+  createSurvey(questions: any) {
+    const url = `${this.surveyUrl}`;
+    const options = {};
+    if (!!this.authService.getCurrentUser()) {
+      options['headers'] = new HttpHeaders().set('x-auth-token', this.authService.getCurrentUser().token);
+    }
+    this.http.post<any>(url, questions, options).pipe(
+      catchError(this.handleError<SurveyResponse>(`WTF ${questions}`))
+    ).subscribe();
+  }
 }

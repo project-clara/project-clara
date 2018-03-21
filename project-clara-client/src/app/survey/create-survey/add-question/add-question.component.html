@@ -29,20 +29,3 @@
   </div>
   <button type="submit" class="btn btn-primary">Add Question</button>
 </form>
-
-<form (ngSubmit)="onSubmitSecond(surveyForm)" #surveyForm="ngForm">
-  <div class="form-group container" *ngFor="let q of questions;let i=index">
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Question Text" [(ngModel)]="q.questionText"
-               name="questionText{{i}}">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Question Type" [(ngModel)]="q.questionType"
-               name="questionType{{i}}">
-      </div>
-
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Save Survey</button>
-</form>

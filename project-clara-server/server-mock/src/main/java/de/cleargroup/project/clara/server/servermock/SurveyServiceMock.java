@@ -71,6 +71,11 @@ public class SurveyServiceMock {
         return new ResponseEntity(responseHeaders, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/api/survey/v1/survey", method=RequestMethod.POST)
+    public ResponseEntity createSurvey(@RequestHeader(value = "x-auth-token", required = false) String reqToken, @RequestBody String raw) {
+        return authOkOr(reqToken, new ResponseEntity(HttpStatus.OK));
+
+    }
     @RequestMapping(value = "/api/survey/v1/survey/{idAsString}", method = RequestMethod.GET)
     public ResponseEntity getSurveyIfParameterEqual42(@PathVariable String idAsString, @RequestHeader(value = "x-auth-token", required = false) String reqToken) {
         return authOkOr(reqToken, SurveyMockHelper.getResponseForSurveyId(idAsString));

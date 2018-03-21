@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {QuestionPrototype} from './question-prototype';
 import {ChoiceEntry} from '../../domain/choice-entry';
 import {Question} from '../../domain/question';
@@ -12,6 +12,8 @@ import {QuestionType} from '../../domain/question-type';
 export class AddQuestionComponent implements OnInit {
   question: QuestionPrototype = new QuestionPrototype();
   questions: Question[] = [];
+
+  @Output() newQuestionStream = new EventEmitter<Question>();
 
   constructor() {
   }
@@ -28,12 +30,11 @@ export class AddQuestionComponent implements OnInit {
     newQuestion.choiceEntries = questionType === QuestionType.SingleChoiceQuestion ? this.question.choices : [];
     newQuestion.questionType = questionType;
     this.questions.push(newQuestion);
+    this.newQuestionStream.next(newQuestion);
     console.log(newQuestion);
   }
 
-  onSubmitSecond(obj: any) {
-    console.log('Second');
-  }
+
 
   addChoice() {
     this.question.choices.push(new ChoiceEntry());

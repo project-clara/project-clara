@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
-import {HttpHeaders, HttpClient, HttpResponse} from '@angular/common/http'
+import {HttpHeaders, HttpClient, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import {environment} from '../../../environments/environment';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {createUrlResolverWithoutPackagePrefix} from '@angular/compiler';
+
 
 /**
  * This class implements a JWT authentication for the application.
@@ -28,12 +29,37 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
     // set token if saved in local storage
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = !!currentUser ? currentUser.token : null;
-
+    const token = !!currentUser ? currentUser.token : null;
     this.baseUrl = environment.apiBaseUrl;
-    this.userAuthenticated$.next(!!currentUser);
+
     console.log(`ctor ${JSON.stringify(currentUser)}`);
+
+    const requestOptions = {
+      headers: new HttpHeaders().set('x-auth-token', token),
+      observe: 'response' as 'response'
+    };
+    this.http.get<HttpResponse<any>>(this.baseUrl + 'auth/userstate', requestOptions)
+      .toPromise()
+      .then(
+        response => new Promise<void>(
+          (ok, error) => {
+            (response.ok ? ok : error)();
+          }
+        )
+      ).then(
+      () => {
+        console.log('Login ok');
+        this.token = token;
+        this.userAuthenticated$.next(!!currentUser);
+      }
+    ).catch((err) => {
+        console.log('Login not ok');
+        this.token = null;
+        this.userAuthenticated$.next(false);
+      }
+    );
   }
+
 
   /**
    * Authenticates the given credentials. An error will be thrown if the username or password is not correct.

@@ -28,18 +28,23 @@ public class SurveyServiceMock {
 
     private static final ResponseEntity UNAUTHORIZED = new ResponseEntity(HttpStatus.UNAUTHORIZED);
 
-    @RequestMapping(value = "/auth/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/auth/userstate", method = RequestMethod.GET)
+    public ResponseEntity userstate(@RequestHeader(value = "x-auth-token", required = false) String reqToken) throws UnsupportedEncodingException {
+        return authOkOr(reqToken, new ResponseEntity(HttpStatus.OK));
+    }
+
+    @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
     public ResponseEntity login(@RequestHeader(value = "Authorization") String authHeader) throws UnsupportedEncodingException {
         System.out.println(authHeader);
         StringTokenizer tokenizer = new StringTokenizer(authHeader);
 
-        if(!tokenizer.hasMoreTokens()){
+        if (!tokenizer.hasMoreTokens()) {
             return new ResponseEntity<>("Authorization Header No Entries", HttpStatus.BAD_REQUEST);
         }
-        if(!tokenizer.nextToken().equals("Basic")){
+        if (!tokenizer.nextToken().equals("Basic")) {
             return new ResponseEntity<>("Authorization Header Entry not Basic", HttpStatus.BAD_REQUEST);
         }
-        if(!tokenizer.hasMoreTokens()){
+        if (!tokenizer.hasMoreTokens()) {
             return new ResponseEntity<>("No Credentials given", HttpStatus.BAD_REQUEST);
         }
 
@@ -47,38 +52,38 @@ public class SurveyServiceMock {
         String credentials = new String(credentialsByteArray, "UTF-8");
         String[] usernamePassword = credentials.split(":");
 
-        if(usernamePassword.length != 2){
+        if (usernamePassword.length != 2) {
             return new ResponseEntity<>("Username / Password required", HttpStatus.BAD_REQUEST);
         }
-        if(!usernamePassword[0].equals(currentUsername)){
+        if (!usernamePassword[0].equals(currentUsername)) {
             return new ResponseEntity<>("Username not correct", HttpStatus.BAD_REQUEST);
         }
 
-        if(!usernamePassword[1].equals(currentPassword)) {
+        if (!usernamePassword[1].equals(currentPassword)) {
             //FIXME: Only useful for debugging
             return new ResponseEntity<>("Password not correct", HttpStatus.BAD_REQUEST);
         }
 
-            HttpHeaders responseHeaders = new HttpHeaders();
-            token = UUID.randomUUID().toString();
-            responseHeaders.set("x-auth-token", token);
-            responseHeaders.set("access-control-expose-headers","x-auth-token");
-            return new ResponseEntity(responseHeaders, HttpStatus.OK);
+        HttpHeaders responseHeaders = new HttpHeaders();
+        token = UUID.randomUUID().toString();
+        responseHeaders.set("x-auth-token", token);
+        responseHeaders.set("access-control-expose-headers", "x-auth-token");
+        return new ResponseEntity(responseHeaders, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/survey/v1/survey/{idAsString}",method = RequestMethod.GET)
-    public ResponseEntity getSurveyIfParameterEqual42(@PathVariable String idAsString, @RequestHeader(value = "x-auth-token",required = false)String reqToken){
+    @RequestMapping(value = "/api/survey/v1/survey/{idAsString}", method = RequestMethod.GET)
+    public ResponseEntity getSurveyIfParameterEqual42(@PathVariable String idAsString, @RequestHeader(value = "x-auth-token", required = false) String reqToken) {
         return authOkOr(reqToken, SurveyMockHelper.getResponseForSurveyId(idAsString));
 
     }
 
-    @RequestMapping(value ="/api/survey/v1/surveys", method = RequestMethod.GET)
-    public ResponseEntity getSurveys(@RequestHeader(value = "x-auth-token",required = false)String reqToken){
+    @RequestMapping(value = "/api/survey/v1/surveys", method = RequestMethod.GET)
+    public ResponseEntity getSurveys(@RequestHeader(value = "x-auth-token", required = false) String reqToken) {
         return authOkOr(reqToken, SurveyMockHelper.getResponseForAllSurveys());
     }
 
     @RequestMapping(value = "/configMock/setCredentials/{username}/{password}")
-    public String setCredentials(@PathVariable String username, @PathVariable String password){
+    public String setCredentials(@PathVariable String username, @PathVariable String password) {
         currentUsername = username;
         currentPassword = password;
         authRequired = true;
@@ -86,14 +91,14 @@ public class SurveyServiceMock {
     }
 
     @RequestMapping(value = "/configMock/setCredentials/reset")
-    public String setCredentials(){
+    public String setCredentials() {
         authRequired = false;
 
         return "Cred resetted";
     }
 
     @RequestMapping(value = "/help")
-    public String help(){
+    public String help() {
         return "<html>" +
                 "<body>" +
                 "<p><a href='/configMock/setCredentials/user/pass'>Set Username to user and Password to pass</a></p>" +
@@ -104,8 +109,8 @@ public class SurveyServiceMock {
     }
 
 
-    private ResponseEntity authOkOr(String xAuthToken, ResponseEntity okResponse){
-        if(authRequired && (token == null || !token.equals(xAuthToken))) {
+    private ResponseEntity authOkOr(String xAuthToken, ResponseEntity okResponse) {
+        if (authRequired && (token == null || !token.equals(xAuthToken)) || (!authRequired && token != null)) {
             return UNAUTHORIZED;
         }
         return okResponse;

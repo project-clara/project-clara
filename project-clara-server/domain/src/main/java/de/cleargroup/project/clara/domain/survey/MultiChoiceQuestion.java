@@ -14,7 +14,7 @@ public class MultiChoiceQuestion  extends Question{
     public final List<ChoiceEntry> choiceEntries;
 
     public MultiChoiceQuestion(Long id, String questionText, String description, boolean mandatory, List<ChoiceEntry> choiceEntries) {
-        super(id, QuestionType.MULTI_CHOICE_QUESTION, questionText, description, mandatory);
+        super(id, questionText, description, mandatory);
         Preconditions.checkNotNull(choiceEntries,"ChoiceOptions must be given for MultiChoiceQuestion");
         Preconditions.checkArgument(!choiceEntries.isEmpty(),"ChoiceOptions must contain at least one option");
         this.choiceEntries = Collections.unmodifiableList(choiceEntries);

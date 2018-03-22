@@ -31,7 +31,11 @@ export class SurveyService {
   getSurvey(id: number): Observable<SurveyResponse> {
     // return of(SURVEY_MOCK);
     const url = `${this.surveyUrl}/${id}`;
-    return this.http.get<SurveyResponse>(url, {headers: new HttpHeaders().set('x-auth-token', this.authService.getCurrentUser().token)}).pipe(
+    const options = {};
+    if (!!this.authService.getCurrentUser()) {
+      options['headers'] = new HttpHeaders().set('x-auth-token', this.authService.getCurrentUser().token);
+    }
+    return this.http.get<SurveyResponse>(url, options).pipe(
       tap(_ => this.logNotification(`Datensatz mit id=${id} geladen!`)),
       catchError(this.handleError<SurveyResponse>(`getSurvey id=${id}`))
     );
@@ -51,8 +55,13 @@ export class SurveyService {
     if (!!this.authService.getCurrentUser()) {
       options['headers'] = new HttpHeaders().set('x-auth-token', this.authService.getCurrentUser().token);
     }
-    this.http.post<any>(url, questions, options).pipe(
+    this.http.post<any>(url, {
+      title: "hello",
+      description: "WTF",
+      questions: questions
+    }, options).pipe(
       catchError(this.handleError<SurveyResponse>(`WTF ${questions}`))
     ).subscribe();
   }
 }
+//

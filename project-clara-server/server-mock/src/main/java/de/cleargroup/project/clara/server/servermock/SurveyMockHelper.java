@@ -5,6 +5,8 @@ import de.cleargroup.project.clara.domain.ResponseMetadata;
 import de.cleargroup.project.clara.domain.survey.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,6 +15,8 @@ import java.util.Map;
 /**
  * Created by jonas on 28.10.2017.
  */
+@RestController
+@CrossOrigin()
 public class SurveyMockHelper {
 
     public static ResponseEntity<ResponseContainer> getResponseForSurveyId(String idString) {

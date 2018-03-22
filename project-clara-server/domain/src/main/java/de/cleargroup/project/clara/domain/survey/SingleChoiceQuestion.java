@@ -14,7 +14,7 @@ public class SingleChoiceQuestion extends Question{
     public final List<ChoiceEntry> choiceEntries;
 
     public SingleChoiceQuestion(Long id, String questionText, String description, boolean mandatory, List<ChoiceEntry> choiceEntries) {
-        super(id, QuestionType.SINGLE_CHOICE_QUESTION, questionText, description, mandatory);
+        super(id, questionText, description, mandatory);
         Preconditions.checkNotNull(choiceEntries,"ChoiceOptions must be given for SingleChoiceQuestion");
         Preconditions.checkArgument(!choiceEntries.isEmpty(),"ChoiceOptions must contain at least one option");
         this.choiceEntries = Collections.unmodifiableList(choiceEntries);

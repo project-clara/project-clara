@@ -1,32 +1,24 @@
 package de.cleargroup.project.clara.server.servermock;
 
-import de.cleargroup.project.clara.domain.ResponseContainer;
-import de.cleargroup.project.clara.domain.ResponseMetadata;
-import de.cleargroup.project.clara.domain.survey.Survey;
-import org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
-import javax.swing.text.html.Option;
 import java.io.UnsupportedEncodingException;
-import java.util.*;
+import java.util.Base64;
+import java.util.StringTokenizer;
+import java.util.UUID;
 
-/**
- * Created by jonas on 27.10.2017.
- */
 @RestController
 @CrossOrigin()
-public class SurveyServiceMock {
+public class AuthEndpoint {
+    private static final ResponseEntity UNAUTHORIZED = new ResponseEntity(HttpStatus.UNAUTHORIZED);
+
     private String currentUsername;
     private String currentPassword;
     private String token;
     private boolean authRequired = false;
-
-    private static final ResponseEntity UNAUTHORIZED = new ResponseEntity(HttpStatus.UNAUTHORIZED);
 
     @RequestMapping(value = "/auth/userstate", method = RequestMethod.GET)
     public ResponseEntity userstate(@RequestHeader(value = "x-auth-token", required = false) String reqToken) throws UnsupportedEncodingException {
@@ -71,20 +63,11 @@ public class SurveyServiceMock {
         return new ResponseEntity(responseHeaders, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/survey/v1/survey", method=RequestMethod.POST)
-    public ResponseEntity createSurvey(@RequestHeader(value = "x-auth-token", required = false) String reqToken, @RequestBody String raw) {
-        return authOkOr(reqToken, new ResponseEntity(HttpStatus.OK));
-
-    }
-    @RequestMapping(value = "/api/survey/v1/survey/{idAsString}", method = RequestMethod.GET)
-    public ResponseEntity getSurveyIfParameterEqual42(@PathVariable String idAsString, @RequestHeader(value = "x-auth-token", required = false) String reqToken) {
-        return authOkOr(reqToken, SurveyMockHelper.getResponseForSurveyId(idAsString));
-
-    }
-
-    @RequestMapping(value = "/api/survey/v1/surveys", method = RequestMethod.GET)
-    public ResponseEntity getSurveys(@RequestHeader(value = "x-auth-token", required = false) String reqToken) {
-        return authOkOr(reqToken, SurveyMockHelper.getResponseForAllSurveys());
+    public ResponseEntity authOkOr(String xAuthToken, ResponseEntity okResponse) {
+        if (authRequired && (token == null || !token.equals(xAuthToken)) || (!authRequired && token != null)) {
+            return UNAUTHORIZED;
+        }
+        return okResponse;
     }
 
     @RequestMapping(value = "/configMock/setCredentials/{username}/{password}")
@@ -102,22 +85,4 @@ public class SurveyServiceMock {
         return "Cred resetted";
     }
 
-    @RequestMapping(value = "/help")
-    public String help() {
-        return "<html>" +
-                "<body>" +
-                "<p><a href='/configMock/setCredentials/user/pass'>Set Username to user and Password to pass</a></p>" +
-                "<p><a href='/configMock/setCredentials/reset'>Reset Username and Password </a></p>" +
-                "</body>" +
-                "</html>";
-
-    }
-
-
-    private ResponseEntity authOkOr(String xAuthToken, ResponseEntity okResponse) {
-        if (authRequired && (token == null || !token.equals(xAuthToken)) || (!authRequired && token != null)) {
-            return UNAUTHORIZED;
-        }
-        return okResponse;
-    }
 }

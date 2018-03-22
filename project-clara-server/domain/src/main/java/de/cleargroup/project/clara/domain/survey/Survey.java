@@ -8,6 +8,7 @@ import com.google.common.base.Preconditions;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by jonas on 27.10.2017.
@@ -26,19 +27,21 @@ public class Survey {
     @JsonProperty("questions")
     private List<Question> questions = new ArrayList<>();
 
-    @JsonCreator
+
+
     public Survey(Long id, String title, String description, Collection<Question> questions) {
+        this(Optional.of(id), title ,description,questions);
+    }
+
+    @JsonCreator
+    public Survey(@JsonProperty("id") Optional<Long> id, @JsonProperty("title") String title, @JsonProperty("description") String description, @JsonProperty("questions") Collection<Question> questions) {
         Preconditions.checkNotNull(title,"Title must not be null");
         Preconditions.checkNotNull(questions,"Questions must not be null");
         Preconditions.checkArgument(questions.size() > 0,"Survey must have at least one question");
 
-        this.id = id;
+        this.id = id.isPresent() ? id.get() : null;
         this.title = title;
         this.description = description;
         this.questions.addAll(questions);
-    }
-
-    public Survey(String title, String description, Collection<Question> questions){
-        this(null,title,description,questions);
     }
 }

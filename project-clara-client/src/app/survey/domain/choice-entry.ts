@@ -1,5 +1,5 @@
 export class ChoiceEntry {
   key: string;
-  choiceText: string;
+   : string;
   preSelected: boolean;
 }
